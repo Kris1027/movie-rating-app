@@ -12,9 +12,8 @@
 
 ## List to do:
 
-- [ ] setup project
 - [ ] deploy (netlify)
-- [ ] connect with api for authenticated users
+- [ ] connect with api
 - [ ] fetching movies and series
 - [ ] navigation
 - [ ] footer
