@@ -33,7 +33,7 @@ export function Series() {
   if (isError) return <p>Error</p>;
 
   return (
-    <div className="grid grid-cols-3 gap-4 text-center p-4">
+    <div className="grid grid-cols-3 gap-4 text-center">
       {series.map((serie: seriesProps) => (
         <SeriesCard key={serie.id} serie={serie} />
       ))}

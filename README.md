@@ -16,7 +16,7 @@
 - [x] connect with api
 - [x] fetching movies and series
 - [x] movies page
-- [ ] series page
+- [x] series page
 - [ ] navigation
 - [ ] footer
 - [ ] home page
