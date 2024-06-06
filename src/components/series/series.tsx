@@ -1,7 +1,8 @@
+import { getSeries } from "@/api/getSeries";
 import { useEffect, useState } from "react";
-import { getSeries } from "../api/getSeries";
+import { SeriesCard } from "./series-card";
 
-type seriesProps = {
+export type seriesProps = {
   id: number;
   name: string;
   first_air_date: string;
@@ -32,15 +33,9 @@ export function Series() {
   if (isError) return <p>Error</p>;
 
   return (
-    <div>
+    <div className="grid grid-cols-3 gap-4 text-center p-4">
       {series.map((serie: seriesProps) => (
-        <div key={serie.id}>
-          <h2>{serie.name}</h2>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${serie.poster_path}`}
-            alt={`${serie.name} poster`}
-          />
-        </div>
+        <SeriesCard key={serie.id} serie={serie} />
       ))}
     </div>
   );
