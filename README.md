@@ -12,9 +12,9 @@
 
 ## List to do:
 
+- [x] connect with api
+- [x] fetching movies and series
 - [ ] deploy (netlify)
-- [ ] connect with api
-- [ ] fetching movies and series
 - [ ] navigation
 - [ ] footer
 - [ ] home page
