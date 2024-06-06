@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { getMovies } from "../api/getMovies";
+import { getMovies } from "../../api/getMovies";
+import { MoviesCard } from "./movies-card";
 
-type movieProps = {
+export type movieProps = {
   id: number;
   title: string;
   release_date: string;
@@ -32,15 +33,9 @@ export function Movies() {
   if (isError) return <p>Error</p>;
 
   return (
-    <div>
+    <div className="grid grid-cols-3 gap-4 text-center p-4">
       {movies.map((movie: movieProps) => (
-        <div key={movie.id}>
-          <h2>{movie.title}</h2>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-            alt={`${movie.title} poster`}
-          />
-        </div>
+        <MoviesCard key={movie.id} movie={movie} />
       ))}
     </div>
   );

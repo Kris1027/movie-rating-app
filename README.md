@@ -9,17 +9,18 @@
 - Tailwind
 - React
 - TypeScript
+- Shadcn/ui
 
 ## List to do:
 
 - [x] connect with api
 - [x] fetching movies and series
-- [ ] deploy (netlify)
+- [x] movies page
+- [ ] series page
 - [ ] navigation
 - [ ] footer
 - [ ] home page
-- [ ] movies page
-- [ ] series page
+- [ ] deploy (netlify)
 - [ ] rating stars
 - [ ] rate page
 - [ ] search function
