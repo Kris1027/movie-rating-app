@@ -33,7 +33,7 @@ export function Movies() {
   if (isError) return <p>Error</p>;
 
   return (
-    <div className="grid grid-cols-3 gap-4 text-center p-4">
+    <div className="grid grid-cols-3 gap-4 text-center">
       {movies.map((movie: movieProps) => (
         <MoviesCard key={movie.id} movie={movie} />
       ))}
