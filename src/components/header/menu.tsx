@@ -13,7 +13,7 @@ export function Menu() {
           <NavigationMenuLink href="/">Home</NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuLink href="/">Login</NavigationMenuLink>
+          <NavigationMenuLink href="/login">Login</NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuLink href="/search">Search</NavigationMenuLink>

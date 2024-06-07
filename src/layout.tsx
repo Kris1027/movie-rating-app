@@ -1,10 +1,10 @@
 import { Footer } from "./components/footer";
-import { Navigation } from "./components/navigation/navigation";
+import { NavigationBar } from "./components/header/navigation-bar";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Navigation />
+      <NavigationBar />
       {children}
       <Footer />
     </>
