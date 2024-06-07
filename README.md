@@ -4,11 +4,15 @@
 
 ## Challenges Faced During the Movie Rating App
 
+- Deep inside git and github during project
+- first time use ui library
+
 ## Technologies:
 
-- Tailwind
+- JavaScript
 - React
 - TypeScript
+- Tailwind
 - Shadcn/ui
 
 ## List to do:
@@ -17,10 +21,10 @@
 - [x] fetching movies and series
 - [x] movies page
 - [x] series page
-- [ ] navigation
+- [x] home page
 - [ ] footer
-- [ ] home page
+- [ ] menu with navigation
+- [ ] rating stars in rate modal, imdb inspiration
+- [ ] rating page where are rated movies or series by user
 - [ ] deploy (netlify)
-- [ ] rating stars
-- [ ] rate page
 - [ ] search function
