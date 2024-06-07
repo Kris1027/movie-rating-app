@@ -24,7 +24,7 @@
 - [x] home page
 - [x] footer
 - [x] menu with navigation
-- [ ] implement dark mode
+- [x] implement dark mode
 - [ ] skeleton component while loading data for cards
 - [ ] rating stars in rate modal, imdb inspiration
 - [ ] rating page where are rated movies or series by user

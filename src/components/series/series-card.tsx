@@ -1,6 +1,6 @@
 import { type seriesProps } from "./series";
 import { Card, CardContent, CardHeader } from "../ui/card";
-import { FaStar, FaCalendar } from "react-icons/fa";
+import { Star, Calendar } from "lucide-react";
 
 export function SeriesCard({ serie }: { serie: seriesProps }) {
   return (
@@ -14,10 +14,10 @@ export function SeriesCard({ serie }: { serie: seriesProps }) {
       </CardHeader>
       <CardContent>
         <p className="flex items-center gap-1">
-          <FaCalendar size={20} /> {serie.first_air_date}
+          <Calendar /> {serie.first_air_date}
         </p>
         <p className="flex items-center gap-1 font-bold">
-          <FaStar color="#facc15" size={20} /> {serie.vote_average.toFixed(2)}
+          <Star color="#facc15" /> {serie.vote_average.toFixed(2)}
         </p>
       </CardContent>
     </Card>
