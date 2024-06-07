@@ -22,8 +22,8 @@
 - [x] movies page
 - [x] series page
 - [x] home page
-- [ ] footer
-- [ ] menu with navigation
+- [x] footer
+- [x] menu with navigation
 - [ ] rating stars in rate modal, imdb inspiration
 - [ ] rating page where are rated movies or series by user
 - [ ] deploy (netlify)
