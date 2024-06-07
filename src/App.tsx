@@ -9,9 +9,11 @@ export default function App() {
 
   return (
     <Layout>
-      <ContentSwitcher toggle={toggle} setToggle={setToggle} />
-      {toggle && <Movies />}
-      {!toggle && <Series />}
+      <main className="p-4 text-center">
+        <ContentSwitcher toggle={toggle} setToggle={setToggle} />
+        {toggle && <Movies />}
+        {!toggle && <Series />}
+      </main>
     </Layout>
   );
 }
