@@ -10,7 +10,7 @@ export function ContentSwitcher({ toggle, setToggle }: ContentSwitcherProps) {
     <div>
       <div>
         <Button
-          variant={toggle ? "destructive" : "default"}
+          variant={toggle ? "default" : "secondary"}
           size="lg"
           onClick={() => setToggle(true)}
         >
@@ -18,7 +18,7 @@ export function ContentSwitcher({ toggle, setToggle }: ContentSwitcherProps) {
         </Button>
         <Button
           size="lg"
-          variant={toggle ? "default" : "destructive"}
+          variant={toggle ? "secondary" : "default"}
           onClick={() => setToggle(false)}
         >
           Series

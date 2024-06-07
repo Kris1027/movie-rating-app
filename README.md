@@ -1,4 +1,4 @@
-# Portfolio
+# Movie Rating App
 
 `live` : </>
 
@@ -11,6 +11,7 @@
 
 - JavaScript
 - React
+- React Router
 - TypeScript
 - Tailwind
 - Shadcn/ui
@@ -25,8 +26,10 @@
 - [x] footer
 - [x] menu with navigation
 - [x] implement dark mode
+- [ ] deploy (netlify)
+- [ ] routing via react router
 - [ ] skeleton component while loading data for cards
 - [ ] rating stars in rate modal, imdb inspiration
 - [ ] rating page where are rated movies or series by user
-- [ ] deploy (netlify)
+- [ ] pagination
 - [ ] search function
