@@ -1,6 +1,6 @@
 # Movie Rating App
 
-`live` : </>
+`live` : <https://movie-rating-app-kris1027.netlify.app/ />
 
 ## Challenges Faced During the Movie Rating App
 
@@ -26,7 +26,7 @@
 - [x] footer
 - [x] menu with navigation
 - [x] implement dark mode
-- [ ] deploy (netlify)
+- [x] deploy (netlify)
 - [ ] routing via react router
 - [ ] skeleton component while loading data for cards
 - [ ] rating stars in rate modal, imdb inspiration
