@@ -1,6 +1,6 @@
 # Movie Rating App
 
-`live` : <https://movie-rating-app-kris1027.netlify.app/ />
+`live` : <https://movie-rating-app-kris1027.netlify.app>
 
 ## Challenges Faced During the Movie Rating App
 

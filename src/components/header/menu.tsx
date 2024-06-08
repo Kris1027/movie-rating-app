@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -11,6 +12,7 @@ const pages = [
   { title: "Login", href: "/login" },
   { title: "Movies", href: "/movies" },
   { title: "Series", href: "/series" },
+  { title: "Rated", href: "/rated" },
 ];
 
 export function Menu() {
@@ -19,9 +21,9 @@ export function Menu() {
       <NavigationMenuList>
         {pages.map((page) => (
           <NavigationMenuItem key={page.title}>
-            <a href={page.href}>
+            <Link to={page.href}>
               <NavigationMenuLink>{page.title}</NavigationMenuLink>
-            </a>
+            </Link>
           </NavigationMenuItem>
         ))}
         <NavigationMenuItem>
