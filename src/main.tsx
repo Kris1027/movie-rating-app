@@ -4,11 +4,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 
 import { Layout } from "./components/layout.tsx";
-import { HomePage } from "./views/home-page.tsx";
-import { LoginPage } from "./views/login-page.tsx";
-import { MoviesPage } from "./views/movies-page.tsx";
-import { SeriesPage } from "./views/series-page.tsx";
-import { RatedPage } from "./views/rated-page.tsx";
+import { HomePage } from "./pages/home-page.tsx";
+import { LoginPage } from "./pages/login-page.tsx";
+import { MoviesPage } from "./pages/movies-page.tsx";
+import { SeriesPage } from "./pages/series-page.tsx";
+import { RatedPage } from "./pages/rated-page.tsx";
 
 import { getPopularMovies } from "./loaders/getPopularMovies.ts";
 
@@ -28,8 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/movies",
         element: <MoviesPage />,
-
-        loader: async () => getPopularMovies(),
+        loader: getPopularMovies,
       },
       {
         path: "/series",
