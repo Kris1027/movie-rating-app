@@ -1,4 +1,4 @@
-import { ContentCart } from "@/components/content-card";
+import { ContentCard } from "@/components/content-card";
 import { ContentSwitcher } from "@/components/content-switcher";
 import { contentTypes, dataProps } from "@/types/content-types";
 import { useState } from "react";
@@ -21,7 +21,7 @@ export function HomePage() {
       />
       <div className="grid grid-cols-3 gap-4 text-center p-4">
         {content.map((c) => (
-          <ContentCart key={c.id} c={c} contentType={contentType} />
+          <ContentCard key={c.id} c={c} contentType={contentType} />
         ))}
       </div>
     </div>

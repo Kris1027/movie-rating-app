@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader } from "./ui/card";
 import { Heading } from "./ui/heading";
 import { Calendar, Star } from "lucide-react";
 
-export function ContentCart({
+export function ContentCard({
   c,
   contentType,
 }: {
