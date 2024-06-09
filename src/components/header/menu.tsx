@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -21,9 +20,9 @@ export function Menu() {
       <NavigationMenuList>
         {pages.map((page) => (
           <NavigationMenuItem key={page.title}>
-            <Link to={page.href}>
-              <NavigationMenuLink>{page.title}</NavigationMenuLink>
-            </Link>
+            <NavigationMenuLink href={page.href}>
+              {page.title}
+            </NavigationMenuLink>
           </NavigationMenuItem>
         ))}
         <NavigationMenuItem>
