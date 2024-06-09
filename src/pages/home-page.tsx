@@ -1,8 +1,8 @@
-import { ContentCard } from "@/components/content-card";
-import { ContentSwitcher } from "@/components/content-switcher";
-import { contentTypes, dataProps } from "@/types/content-types";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import { contentTypes, type dataProps } from "@/types/content-types";
+import { ContentSwitcher } from "@/components/content-switcher";
+import { ContentCard } from "@/components/content-card";
 
 export function HomePage() {
   const [contentType, setContentType] = useState<contentTypes>(
