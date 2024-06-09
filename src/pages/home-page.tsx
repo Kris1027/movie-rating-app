@@ -1,15 +1,15 @@
-import { Button } from "@/components/ui/button";
+import { ContentSwitcher } from "@/components/content-switcher";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
-import { dataProps, movieProps, seriesProps } from "@/types/content-types";
+import {
+  contentTypes,
+  dataProps,
+  movieProps,
+  seriesProps,
+} from "@/types/content-types";
 import { Calendar, Star } from "lucide-react";
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-
-enum contentTypes {
-  movies = "movies",
-  series = "series",
-}
 
 export function HomePage() {
   const [contentType, setContentType] = useState<contentTypes>(
@@ -22,36 +22,10 @@ export function HomePage() {
 
   return (
     <div className="p-4">
-      <div className="flex justify-center">
-        <Button
-          variant={
-            contentType === contentTypes.movies ? "default" : "secondary"
-          }
-          onClick={() => setContentType(contentTypes.movies)}
-        >
-          Movies
-        </Button>
-        <Button
-          variant={
-            contentType === contentTypes.series ? "default" : "secondary"
-          }
-          onClick={() => setContentType(contentTypes.series)}
-        >
-          Series
-        </Button>
-      </div>
-      <div className="p-4 text-center">
-        <h2 className="text-3xl font-bold">
-          {contentType === contentTypes.movies
-            ? "Welcome to Our Cinematic Oasis!"
-            : "Welcome to Our Series Sanctuary!"}
-        </h2>
-        <p className="text-lg italic">
-          {contentType === contentTypes.movies
-            ? "Discover the Latest and Most Popular Movies That Have Captivated Audiences Worldwide! Browse, Watch, and Enjoy the Biggest Hits in Cinema!"
-            : "Discover the Latest and Most Popular TV Shows That Have Captivated Audiences Worldwide! Browse, Watch, and Enjoy the Biggest  Hits in Television!"}
-        </p>
-      </div>
+      <ContentSwitcher
+        contentType={contentType}
+        setContentType={setContentType}
+      />
       <div className="grid grid-cols-3 gap-4 text-center p-4">
         {content.map((c) => (
           <Card key={c.id}>

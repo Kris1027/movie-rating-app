@@ -20,3 +20,8 @@ export type dataProps = {
   movies: movieProps[];
   series: seriesProps[];
 };
+
+export enum contentTypes {
+  movies = "movies",
+  series = "series",
+}
