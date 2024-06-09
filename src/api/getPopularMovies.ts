@@ -1,10 +1,13 @@
 export async function getPopularMovies() {
   try {
-    const res = await fetch("https://api.themoviedb.org/3/movie/popular", {
-      headers: {
-        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-      },
-    });
+    const res = await fetch(
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+      {
+        headers: {
+          Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+        },
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch all the movies");

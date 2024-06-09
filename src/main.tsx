@@ -10,7 +10,8 @@ import { MoviesPage } from "./pages/movies-page.tsx";
 import { SeriesPage } from "./pages/series-page.tsx";
 import { RatedPage } from "./pages/rated-page.tsx";
 
-import { getPopularMovies } from "./loaders/getPopularMovies.ts";
+import { getPopularMovies } from "./api/getPopularMovies.ts";
+import { getPopularSeries } from "./api/getPopularSeries.ts";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       {
         path: "/series",
         element: <SeriesPage />,
+        loader: getPopularSeries,
       },
       {
         path: "/rated",
