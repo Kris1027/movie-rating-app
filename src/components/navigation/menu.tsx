@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import {
   NavigationMenu,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
+  navigationMenuTriggerStyle,
 } from "../ui/navigation-menu";
 import { ModeToggle } from "./mode-toggle";
 
@@ -19,10 +20,10 @@ export function Menu() {
     <NavigationMenu>
       <NavigationMenuList>
         {pages.map((page) => (
-          <NavigationMenuItem key={page.title}>
-            <NavigationMenuLink href={page.href}>
+          <NavigationMenuItem>
+            <Link className={navigationMenuTriggerStyle()} to={page.href}>
               {page.title}
-            </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
         ))}
         <NavigationMenuItem>
