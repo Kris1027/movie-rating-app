@@ -2,6 +2,7 @@ import { contentTypes, movieProps, seriesProps } from "@/types/content-types";
 import { Card, CardContent, CardHeader } from "./ui/card";
 import { Heading } from "./ui/heading";
 import { Calendar, Star } from "lucide-react";
+import { IMAGE_URL } from "@/lib/constants";
 
 export function ContentCard({
   c,
@@ -14,7 +15,7 @@ export function ContentCard({
     <Card>
       <CardHeader>
         <img
-          src={`https://image.tmdb.org/t/p/w500${c.poster_path}`}
+          src={`${IMAGE_URL}${c.poster_path}`}
           alt={
             contentType === "movies"
               ? (c as movieProps).title

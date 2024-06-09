@@ -1,13 +1,12 @@
+import { API_KEY, DATA_URL } from "@/lib/constants";
+
 export async function getPopularSeries() {
   try {
-    const res = await fetch(
-      "https://api.themoviedb.org/3/tv/popular?language=en-US&page=1",
-      {
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-        },
-      }
-    );
+    const res = await fetch(`${DATA_URL}/tv/popular?language=en-US&page=1`, {
+      headers: {
+        Authorization: API_KEY,
+      },
+    });
 
     if (!res.ok) {
       throw new Error("Failed to fetch popular series");
