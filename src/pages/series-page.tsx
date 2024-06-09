@@ -1,15 +1,7 @@
 import { SeriesCard } from "@/components/series/series-card";
 import { Heading } from "@/components/ui/heading";
+import { seriesProps } from "@/types/content-types";
 import { useLoaderData } from "react-router-dom";
-
-export type seriesProps = {
-  id: number;
-  name: string;
-  first_air_date: string;
-  overview: string;
-  vote_average: number;
-  poster_path: string;
-};
 
 export function SeriesPage() {
   const series = useLoaderData() as seriesProps[];

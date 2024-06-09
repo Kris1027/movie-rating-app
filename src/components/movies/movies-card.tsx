@@ -1,4 +1,4 @@
-import { type movieProps } from "./movies";
+import { movieProps } from "@/types/content-types";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { Star, Calendar } from "lucide-react";
 

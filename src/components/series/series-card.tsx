@@ -1,4 +1,4 @@
-import { type seriesProps } from "./series";
+import { seriesProps } from "@/types/content-types";
 import { Card, CardContent, CardHeader } from "../ui/card";
 import { Star, Calendar } from "lucide-react";
 

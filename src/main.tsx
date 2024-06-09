@@ -12,6 +12,7 @@ import { RatedPage } from "./pages/rated-page.tsx";
 
 import { getPopularMovies } from "./api/getPopularMovies.ts";
 import { getPopularSeries } from "./api/getPopularSeries.ts";
+import { homeLoader } from "./api/homeLoader.ts";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+        loader: homeLoader,
       },
       {
         path: "/login",

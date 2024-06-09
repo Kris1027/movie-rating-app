@@ -1,15 +1,7 @@
+import { useLoaderData } from "react-router-dom";
+import { type movieProps } from "@/types/content-types";
 import { MoviesCard } from "@/components/movies/movies-card";
 import { Heading } from "@/components/ui/heading";
-import { useLoaderData } from "react-router-dom";
-
-export type movieProps = {
-  id: number;
-  title: string;
-  release_date: string;
-  overview: string;
-  vote_average: number;
-  poster_path: string;
-};
 
 export function MoviesPage() {
   const movies = useLoaderData() as movieProps[];
