@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { contentTypes, type movieProps } from "@/types/content-types";
 import { Heading } from "@/components/ui/heading";
 import { ContentCard } from "@/components/content-card";
+import { ContentList } from "@/components/content-list";
 
 export function MoviesPage() {
   const movies = useLoaderData() as movieProps[];
@@ -9,7 +10,7 @@ export function MoviesPage() {
   return (
     <div className="p-4">
       <Heading>Popular Movies</Heading>
-      <div className="grid grid-cols-3 gap-4 text-center p-4">
+      <ContentList>
         {movies.map((movie: movieProps) => (
           <ContentCard
             key={movie.id}
@@ -17,7 +18,7 @@ export function MoviesPage() {
             contentType={contentTypes.movies}
           />
         ))}
-      </div>
+      </ContentList>
     </div>
   );
 }

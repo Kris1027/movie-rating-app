@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import { contentTypes, type dataProps } from "@/types/content-types";
 import { ContentSwitcher } from "@/components/content-switcher";
 import { ContentCard } from "@/components/content-card";
+import { ContentList } from "@/components/content-list";
 
 export function HomePage() {
   const [contentType, setContentType] = useState<contentTypes>(
@@ -19,11 +20,11 @@ export function HomePage() {
         contentType={contentType}
         setContentType={setContentType}
       />
-      <div className="grid grid-cols-3 gap-4 text-center p-4">
+      <ContentList>
         {content.map((c) => (
           <ContentCard key={c.id} c={c} contentType={contentType} />
         ))}
-      </div>
+      </ContentList>
     </div>
   );
 }

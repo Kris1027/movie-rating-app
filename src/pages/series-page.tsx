@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { contentTypes, type seriesProps } from "@/types/content-types";
 import { ContentCard } from "@/components/content-card";
 import { Heading } from "@/components/ui/heading";
+import { ContentList } from "@/components/content-list";
 
 export function SeriesPage() {
   const series = useLoaderData() as seriesProps[];
@@ -9,7 +10,7 @@ export function SeriesPage() {
   return (
     <div className="p-4">
       <Heading>Popular Series</Heading>
-      <div className="grid grid-cols-3 gap-4 text-centerv p-4">
+      <ContentList>
         {series.map((serie: seriesProps) => (
           <ContentCard
             key={serie.id}
@@ -17,7 +18,7 @@ export function SeriesPage() {
             contentType={contentTypes.series}
           />
         ))}
-      </div>
+      </ContentList>
     </div>
   );
 }
