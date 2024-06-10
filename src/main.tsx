@@ -9,10 +9,12 @@ import { LoginPage } from "./pages/login-page.tsx";
 import { MoviesPage } from "./pages/movies-page.tsx";
 import { SeriesPage } from "./pages/series-page.tsx";
 import { RatedPage } from "./pages/rated-page.tsx";
+import { ContentDetailsPage } from "./pages/content-details-page.tsx";
 
 import { getPopularMovies } from "./api/getPopularMovies.ts";
 import { getPopularSeries } from "./api/getPopularSeries.ts";
 import { homeLoader } from "./api/homeLoader.ts";
+import { getMovieDetails } from "./api/getMovieDetails.ts";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +39,11 @@ const router = createBrowserRouter([
         path: "/series",
         element: <SeriesPage />,
         loader: getPopularSeries,
+      },
+      {
+        path: "/:id",
+        element: <ContentDetailsPage />,
+        loader: async ({ params }) => getMovieDetails({ movieId: params.id }),
       },
       {
         path: "/rated",

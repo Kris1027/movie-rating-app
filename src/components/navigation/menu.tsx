@@ -20,7 +20,7 @@ export function Menu() {
     <NavigationMenu>
       <NavigationMenuList>
         {pages.map((page) => (
-          <NavigationMenuItem>
+          <NavigationMenuItem key={page.href}>
             <Link className={navigationMenuTriggerStyle()} to={page.href}>
               {page.title}
             </Link>
