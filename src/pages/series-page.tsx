@@ -8,7 +8,7 @@ export function SeriesPage() {
   const series = useLoaderData() as seriesProps[];
 
   return (
-    <div className="p-4">
+    <>
       <Heading>Popular Series</Heading>
       <ContentList>
         {series.map((serie: seriesProps) => (
@@ -19,6 +19,6 @@ export function SeriesPage() {
           />
         ))}
       </ContentList>
-    </div>
+    </>
   );
 }

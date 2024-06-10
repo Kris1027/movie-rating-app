@@ -22,10 +22,11 @@ export function ContentDetailsPage() {
   const contentType = useParams().contentType as contentTypes;
 
   return (
-    <Card className="flex flex-row">
+    <Card className="grid grid-cols-2 p-4">
       <CardHeader>
         <img
           src={`${IMAGE_URL}${data.poster_path}`}
+          width={500}
           alt={
             contentType === "movies"
               ? (data as DetailedMovieProps).title
@@ -33,7 +34,7 @@ export function ContentDetailsPage() {
           }
         />
       </CardHeader>
-      <CardContent className="flex flex-col justify-between w-2/3 py-10">
+      <CardContent className="flex flex-col justify-between">
         <div>
           <CardTitle>
             {contentType === "movies"

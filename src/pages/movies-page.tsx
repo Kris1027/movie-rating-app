@@ -8,7 +8,7 @@ export function MoviesPage() {
   const movies = useLoaderData() as movieProps[];
 
   return (
-    <div className="p-4">
+    <>
       <Heading>Popular Movies</Heading>
       <ContentList>
         {movies.map((movie: movieProps) => (
@@ -19,6 +19,6 @@ export function MoviesPage() {
           />
         ))}
       </ContentList>
-    </div>
+    </>
   );
 }

@@ -15,7 +15,7 @@ export function HomePage() {
     contentType === contentTypes.movies ? data.movies : data.series;
 
   return (
-    <div className="p-4">
+    <>
       <ContentSwitcher
         contentType={contentType}
         setContentType={setContentType}
@@ -25,6 +25,6 @@ export function HomePage() {
           <ContentCard key={c.id} c={c} contentType={contentType} />
         ))}
       </ContentList>
-    </div>
+    </>
   );
 }
