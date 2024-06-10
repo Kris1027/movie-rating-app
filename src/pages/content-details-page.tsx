@@ -1,3 +1,6 @@
+import { useLoaderData, useParams } from "react-router-dom";
+import { contentTypes } from "@/types/content-types";
+import { IMAGE_URL } from "@/lib/constants";
 import {
   Card,
   CardContent,
@@ -5,45 +8,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { IMAGE_URL } from "@/lib/constants";
-import { contentTypes } from "@/types/content-types";
-import { useLoaderData, useParams } from "react-router-dom";
-
-type DetailedMovieProps = {
-  title: string;
-  overview: string;
-  poster_path: string;
-  release_date: string;
-  vote_average: number;
-  production_companies: [];
-  production_countries: [];
-  genres: [];
-};
-
-type DetailedSerieProps = {
-  name: string;
-  overview: string;
-  poster_path: string;
-  first_air_date: string;
-  vote_average: number;
-  production_companies: [];
-  production_countries: [];
-  genres: [];
-};
-
-type genresProps = {
-  id: number;
-  name: string;
-};
-
-type countriesProps = {
-  name: string;
-};
-
-type companiesProps = {
-  name: string;
-  logo_path: string;
-};
+import {
+  DetailedMovieProps,
+  DetailedSerieProps,
+  companiesProps,
+  countriesProps,
+  genresProps,
+} from "@/types/detailed-content-types";
 
 export function ContentDetailsPage() {
   const data = useLoaderData() as DetailedMovieProps | DetailedSerieProps;
