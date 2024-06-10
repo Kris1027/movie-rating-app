@@ -4,6 +4,7 @@ import { Heading } from "./ui/heading";
 import { Calendar, Star } from "lucide-react";
 import { IMAGE_URL } from "@/lib/constants";
 import { Link } from "react-router-dom";
+import { ratedColor } from "@/lib/rated-color";
 
 export function ContentCard({
   c,
@@ -37,7 +38,12 @@ export function ContentCard({
               ? (c as movieProps).release_date
               : (c as seriesProps).first_air_date}
           </p>
-          <p className="flex items-center gap-1 font-bold">
+          <p
+            className="flex items-center gap-2 font-bold"
+            style={{
+              color: ratedColor(Number(c.vote_average.toFixed(2))),
+            }}
+          >
             <Star color="#facc15" /> {c.vote_average.toFixed(2)}
           </p>
         </CardContent>

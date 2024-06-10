@@ -28,10 +28,10 @@
 - [x] implement dark mode
 - [x] deploy (netlify)
 - [x] routing via react router
-- [ ] detail content page with url
-- [ ] skeleton component while loading data for cards
+- [x] detail content page with url
 - [ ] rating stars in rate modal, imdb inspiration
 - [ ] rating page where are rated movies or series by user
+- [ ] skeleton component while loading data for cards
 - [ ] pagination
 - [ ] search function
 - [ ] responsive for multi devices

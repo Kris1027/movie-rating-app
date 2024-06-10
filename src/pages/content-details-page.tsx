@@ -15,6 +15,7 @@ import {
   countriesProps,
   genresProps,
 } from "@/types/detailed-content-types";
+import { ratedColor } from "@/lib/rated-color";
 
 export function ContentDetailsPage() {
   const data = useLoaderData() as DetailedMovieProps | DetailedSerieProps;
@@ -45,7 +46,13 @@ export function ContentDetailsPage() {
                 ? (data as DetailedMovieProps).release_date
                 : (data as DetailedSerieProps).first_air_date}
             </CardDescription>
-            <CardDescription>{data.vote_average}</CardDescription>
+            <CardDescription
+              style={{
+                color: ratedColor(Number(data.vote_average.toFixed(2))),
+              }}
+            >
+              {data.vote_average.toFixed(2)}
+            </CardDescription>
           </div>
           <div className="flex gap-4">
             {data.genres.map((g: genresProps) => (
