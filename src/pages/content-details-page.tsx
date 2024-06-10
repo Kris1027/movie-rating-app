@@ -69,7 +69,7 @@ export function ContentDetailsPage() {
         </div>
         <div className="space-y-4">
           <p className="text-center">Production Companies:</p>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-around items-end bg-muted p-2 rounded-full">
             {data.production_companies.map((c: companiesProps) => (
               <CardDescription
                 key={c.name}
@@ -78,9 +78,8 @@ export function ContentDetailsPage() {
                 <img
                   src={`${IMAGE_URL}${c.logo_path}`}
                   alt={c.name}
-                  className="w-20"
+                  className="h-20"
                 />
-                {c.name}
               </CardDescription>
             ))}
           </div>
