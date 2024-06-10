@@ -6,7 +6,7 @@ const PATHS = {
   series: "tv",
 };
 
-export async function getMovieDetails({
+export async function getDetails({
   id,
   contentType,
 }: {
