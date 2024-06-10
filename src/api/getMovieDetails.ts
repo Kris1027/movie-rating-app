@@ -1,13 +1,25 @@
 import { API_KEY } from "@/lib/constants";
+import { type contentTypes } from "@/types/content-types";
+
+const PATHS = {
+  movies: "movie",
+  series: "tv",
+};
 
 export async function getMovieDetails({
-  movieId,
+  id,
+  contentType,
 }: {
-  movieId: string | undefined;
+  id: string | undefined;
+  contentType: contentTypes | undefined;
 }) {
+  if (!id || !contentType) {
+    throw new Error("Invalid movie ID or content type");
+  }
+
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+      `https://api.themoviedb.org/3/${PATHS[contentType]}/${id}?language=en-US`,
       {
         headers: {
           Authorization: API_KEY,

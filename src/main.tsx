@@ -16,6 +16,8 @@ import { getPopularSeries } from "./api/getPopularSeries.ts";
 import { homeLoader } from "./api/homeLoader.ts";
 import { getMovieDetails } from "./api/getMovieDetails.ts";
 
+import { type contentTypes } from "./types/content-types.ts";
+
 const router = createBrowserRouter([
   {
     path: "",
@@ -41,9 +43,12 @@ const router = createBrowserRouter([
         loader: getPopularSeries,
       },
       {
-        path: "/:content/:id",
+        path: "/:contentType/:id",
         element: <ContentDetailsPage />,
-        loader: async ({ params }) => getMovieDetails({ movieId: params.id }),
+        loader: async ({ params }) => {
+          const contentType = params.contentType as contentTypes;
+          return getMovieDetails({ id: params.id, contentType });
+        },
       },
       {
         path: "/rated",
