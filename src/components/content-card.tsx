@@ -13,7 +13,7 @@ export function ContentCard({
   contentType: contentTypes;
 }) {
   return (
-    <Link to={`/${c.id}`}>
+    <Link to={`/${contentType}/${c.id}`}>
       <Card>
         <CardHeader>
           <img

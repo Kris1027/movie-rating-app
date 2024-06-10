@@ -41,7 +41,7 @@ const router = createBrowserRouter([
         loader: getPopularSeries,
       },
       {
-        path: "/:id",
+        path: "/:content/:id",
         element: <ContentDetailsPage />,
         loader: async ({ params }) => getMovieDetails({ movieId: params.id }),
       },
