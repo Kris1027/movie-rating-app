@@ -29,8 +29,8 @@
 - [x] deploy (netlify)
 - [x] routing via react router
 - [x] detail content page with url
+- [x] rating stars in rate modal, imdb inspiration
 - [ ] add Auth
-- [ ] rating stars in rate modal, imdb inspiration
 - [ ] rating page where are rated movies or series by user
 - [ ] skeleton component while loading data for cards
 - [ ] pagination
