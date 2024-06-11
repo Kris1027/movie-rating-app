@@ -45,7 +45,7 @@ export function RateModal({
         <div>
           <p className="uppercase text-[#facc15] font-bold">rate this</p>
           <Heading>
-            {contentType === "movies"
+            {contentType === "movie"
               ? (c as movieProps).title
               : (c as seriesProps).name}
           </Heading>
