@@ -15,7 +15,7 @@ export function MoviesPage() {
           <ContentCard
             key={movie.id}
             c={movie}
-            contentType={contentTypes.movies}
+            contentType={contentTypes.movie}
           />
         ))}
       </ContentList>

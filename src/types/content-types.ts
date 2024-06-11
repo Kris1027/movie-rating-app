@@ -22,6 +22,6 @@ export type dataProps = {
 };
 
 export enum contentTypes {
-  movies = "movies",
-  series = "series",
+  movie = "movie",
+  tv = "tv",
 }

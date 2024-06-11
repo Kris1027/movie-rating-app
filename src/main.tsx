@@ -15,6 +15,7 @@ import { getPopularMovies } from "./api/getPopularMovies.ts";
 import { getPopularSeries } from "./api/getPopularSeries.ts";
 import { homeLoader } from "./api/homeLoader.ts";
 import { detailsLoader } from "./api/detailsLoader.ts";
+import { addRatingAction } from "./api/addRatingAction.ts";
 
 const router = createBrowserRouter([
   {
@@ -31,12 +32,12 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: "/movies",
+        path: "/movie",
         element: <MoviesPage />,
         loader: getPopularMovies,
       },
       {
-        path: "/series",
+        path: "/tv",
         element: <SeriesPage />,
         loader: getPopularSeries,
       },
@@ -48,6 +49,7 @@ const router = createBrowserRouter([
       {
         path: "/rated",
         element: <RatedPage />,
+        action: addRatingAction,
       },
     ],
   },

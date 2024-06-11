@@ -7,12 +7,12 @@ import { ContentList } from "@/components/content-list";
 
 export function HomePage() {
   const [contentType, setContentType] = useState<contentTypes>(
-    contentTypes.movies
+    contentTypes.movie
   );
   const data = useLoaderData() as dataProps;
 
   const content =
-    contentType === contentTypes.movies ? data.movies : data.series;
+    contentType === contentTypes.movie ? data.movies : data.series;
 
   return (
     <>

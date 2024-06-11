@@ -12,11 +12,7 @@ export function SeriesPage() {
       <Heading>Popular Series</Heading>
       <ContentList>
         {series.map((serie: seriesProps) => (
-          <ContentCard
-            key={serie.id}
-            c={serie}
-            contentType={contentTypes.series}
-          />
+          <ContentCard key={serie.id} c={serie} contentType={contentTypes.tv} />
         ))}
       </ContentList>
     </>

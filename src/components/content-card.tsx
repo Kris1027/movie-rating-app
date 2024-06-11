@@ -36,6 +36,8 @@ export function ContentCard({
     }
   }
 
+  console.log(contentType);
+
   return (
     <>
       <Card>
@@ -44,14 +46,14 @@ export function ContentCard({
             <img
               src={`${IMAGE_URL}${c.poster_path}`}
               alt={
-                contentType === "movies"
+                contentType === "movie"
                   ? (c as movieProps).title
                   : (c as seriesProps).name
               }
             />
           </Link>
           <Heading>
-            {contentType === "movies"
+            {contentType === "movie"
               ? (c as movieProps).title
               : (c as seriesProps).name}
           </Heading>
@@ -59,7 +61,7 @@ export function ContentCard({
         <CardContent>
           <p className="flex items-center gap-1">
             <Calendar />{" "}
-            {contentType === "movies"
+            {contentType === "movie"
               ? (c as movieProps).release_date
               : (c as seriesProps).first_air_date}
           </p>
