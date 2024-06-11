@@ -11,14 +11,14 @@ export function RateStars({
   const [hovered, setHovered] = useState(0);
 
   return (
-    <div className="flex py-4">
+    <div className="flex gap-2 py-4">
       {new Array(10)
         .fill(0)
         .map((_, i) => i + 1)
         .map((i) => (
           <Star
             key={i}
-            size={36}
+            size={24}
             color={i <= (hovered || selected) ? "#2d7dd2" : "gray"}
             fill={i <= (hovered || selected) ? "#2d7dd2" : "none"}
             onMouseEnter={() => setHovered(i)}
