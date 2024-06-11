@@ -18,8 +18,17 @@ export function RateModal({
 }) {
   const [selected, setSelected] = useState(0);
 
+  function handleModal(e: React.MouseEvent) {
+    if (e.target === e.currentTarget) {
+      setShowModal(!showModal);
+    }
+  }
+
   return (
-    <div className="flex justify-center items-center fixed top-0 left-0 w-full h-screen bg-black bg-opacity-50 z-50">
+    <div
+      onClick={handleModal}
+      className="flex justify-center items-center fixed top-0 left-0 w-full h-screen bg-black bg-opacity-70 z-50"
+    >
       <div className="bg-secondary px-48 pt-20 pb-10 rounded-md text-center relative">
         <div className="absolute -top-10 right-0">
           <Button variant="ghost" onClick={() => setShowModal(!showModal)}>

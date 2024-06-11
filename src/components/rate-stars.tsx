@@ -11,7 +11,7 @@ export function RateStars({
   const [hovered, setHovered] = useState(0);
 
   return (
-    <div className="flex gap-2 py-4">
+    <div className="flex justify-center gap-2 py-4">
       {new Array(10)
         .fill(0)
         .map((_, i) => i + 1)
