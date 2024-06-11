@@ -37,7 +37,7 @@ export function RateModal({
         </div>
         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
           <Star color="#2d7dd2" fill="#2d7dd2" size={128} />
-          <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl">
+          <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-primary">
             {selected ? selected : "?"}
           </p>
         </div>
