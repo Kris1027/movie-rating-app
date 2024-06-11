@@ -36,8 +36,6 @@ export function ContentCard({
     }
   }
 
-  console.log(contentType);
-
   return (
     <>
       <Card>
