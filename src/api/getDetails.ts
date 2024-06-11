@@ -1,10 +1,5 @@
-import { API_KEY } from "@/lib/constants";
+import { API_KEY, PATHS } from "@/lib/constants";
 import { type contentTypes } from "@/types/content-types";
-
-const PATHS = {
-  movies: "movie",
-  series: "tv",
-};
 
 export async function getDetails({
   id,
