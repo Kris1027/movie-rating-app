@@ -10,8 +10,8 @@ import { ModeToggle } from "./mode-toggle";
 const pages = [
   { title: "Home", href: "/" },
   { title: "Login", href: "/login" },
-  { title: "Movies", href: "/movies" },
-  { title: "Series", href: "/series" },
+  { title: "Movies", href: "/movie" },
+  { title: "Series", href: "/tv" },
   { title: "Rated", href: "/rated" },
 ];
 

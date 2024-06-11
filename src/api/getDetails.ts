@@ -1,4 +1,4 @@
-import { API_KEY, PATHS } from "@/lib/constants";
+import { API_KEY, DATA_URL } from "@/lib/constants";
 import { type contentTypes } from "@/types/content-types";
 
 export async function getDetails({
@@ -13,23 +13,20 @@ export async function getDetails({
   }
 
   try {
-    const res = await fetch(
-      `https://api.themoviedb.org/3/${PATHS[contentType]}/${id}?language=en-US`,
-      {
-        headers: {
-          Authorization: API_KEY,
-        },
-      }
-    );
+    const res = await fetch(`${DATA_URL}/${contentType}/${id}?language=en-US`, {
+      headers: {
+        Authorization: API_KEY,
+      },
+    });
 
     if (!res.ok) {
-      throw new Error("Failed to fetch popular series");
+      throw new Error("Failed to fetch details");
     }
 
     const movieDetails = await res.json();
     return movieDetails;
   } catch (error) {
-    console.error("Failed to fetch popular series:", error);
+    console.error("Failed to fetch details: ", error);
     throw error;
   }
 }

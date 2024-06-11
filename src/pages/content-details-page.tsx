@@ -28,7 +28,7 @@ export function ContentDetailsPage() {
           src={`${IMAGE_URL}${data.poster_path}`}
           width={500}
           alt={
-            contentType === "movies"
+            contentType === "movie"
               ? (data as DetailedMovieProps).title
               : (data as DetailedSerieProps).name
           }
@@ -37,13 +37,13 @@ export function ContentDetailsPage() {
       <CardContent className="flex flex-col justify-between">
         <div>
           <CardTitle>
-            {contentType === "movies"
+            {contentType === "movie"
               ? (data as DetailedMovieProps).title
               : (data as DetailedSerieProps).name}
           </CardTitle>
           <div className="flex justify-between">
             <CardDescription>
-              {contentType === "movies"
+              {contentType === "movie"
                 ? (data as DetailedMovieProps).release_date
                 : (data as DetailedSerieProps).first_air_date}
             </CardDescription>

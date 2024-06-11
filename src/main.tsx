@@ -32,12 +32,12 @@ const router = createBrowserRouter([
         element: <LoginPage />,
       },
       {
-        path: "/movies",
+        path: "/movie",
         element: <MoviesPage />,
         loader: getPopularMovies,
       },
       {
-        path: "/series",
+        path: "/tv",
         element: <SeriesPage />,
         loader: getPopularSeries,
       },
