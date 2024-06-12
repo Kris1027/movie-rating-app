@@ -1,3 +1,4 @@
+import { LoginPage } from "@/pages/login-page";
 import { Logo } from "./logo";
 import { Menu } from "./menu";
 import { ModeToggle } from "./mode-toggle";
@@ -8,6 +9,7 @@ export function NavigationBar() {
       <Logo />
       <div className="flex gap-10">
         <Menu />
+        <LoginPage />
         <ModeToggle />
       </div>
     </header>

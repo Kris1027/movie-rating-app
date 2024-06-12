@@ -36,6 +36,8 @@ export function ContentCard({
     }
   }
 
+  const isLogIn = Boolean(localStorage.getItem("guestSessionId"));
+
   return (
     <>
       <Card>
@@ -64,9 +66,11 @@ export function ContentCard({
               : (c as seriesProps).first_air_date}
           </p>
           {/* rate modal */}
-          <Button onClick={() => handleModal(c.id)} variant="ghost">
-            <Star />
-          </Button>
+          {isLogIn && (
+            <Button onClick={() => handleModal(c.id)} variant="ghost">
+              <Star />
+            </Button>
+          )}
           <p
             className="flex items-center gap-2 font-bold"
             style={{
@@ -77,7 +81,7 @@ export function ContentCard({
           </p>
         </CardContent>
       </Card>
-      {showModal && modal}
+      {isLogIn && showModal && modal}
     </>
   );
 }

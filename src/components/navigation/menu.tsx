@@ -8,7 +8,6 @@ import {
 
 const pages = [
   { title: "Home", href: "/" },
-  { title: "Login", href: "/login" },
   { title: "Movies", href: "/movie" },
   { title: "Series", href: "/tv" },
   { title: "Rated", href: "/rated" },

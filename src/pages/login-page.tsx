@@ -9,23 +9,31 @@ export function LoginPage() {
   useEffect(() => {
     if (guestSessionId) {
       localStorage.setItem("guestSessionId", guestSessionId);
-      navigate("/");
+      navigate("/", { replace: true });
     }
   }, [guestSessionId, navigate]);
 
   const logOut = () => {
     localStorage.removeItem("guestSessionId");
-    navigate("/");
+    navigate("/", { replace: true });
   };
 
   const isLogIn = Boolean(localStorage.getItem("guestSessionId"));
 
   return (
-    <div className="flex gap-4">
+    <>
       <Form action="/login" method="post">
-        {!isLogIn && <Button type="submit">Log in as a guest</Button>}
+        {!isLogIn && (
+          <Button variant="destructive" type="submit">
+            Log in as a guest
+          </Button>
+        )}
       </Form>
-      {isLogIn && <Button onClick={logOut}>Log out</Button>}
-    </div>
+      {isLogIn && (
+        <Button variant="destructive" onClick={logOut}>
+          Log out
+        </Button>
+      )}
+    </>
   );
 }
