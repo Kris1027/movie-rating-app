@@ -4,6 +4,7 @@ import { contentTypes, movieProps, seriesProps } from "@/types/content-types";
 import { Heading } from "./ui/heading";
 import { Button } from "./ui/button";
 import { useState } from "react";
+import { starSize } from "@/lib/star-size";
 
 export function RateModal({
   c,
@@ -36,7 +37,7 @@ export function RateModal({
           </Button>
         </div>
         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
-          <Star color="#2d7dd2" fill="#2d7dd2" size={128} />
+          <Star color="#2d7dd2" fill="#2d7dd2" size={starSize(selected)} />
           <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-3xl text-primary">
             {selected ? selected : "?"}
           </p>
