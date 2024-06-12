@@ -16,6 +16,7 @@ import { getPopularSeries } from "./api/getPopularSeries.ts";
 import { homeLoader } from "./api/homeLoader.ts";
 import { detailsLoader } from "./api/detailsLoader.ts";
 import { addRatingAction } from "./api/addRatingAction.ts";
+import { createGuestSession } from "./api/createGuestSession.ts";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+        action: createGuestSession,
       },
       {
         path: "/movie",
