@@ -4,7 +4,6 @@ import { contentTypes, movieProps, seriesProps } from "@/types/content-types";
 import { Heading } from "./ui/heading";
 import { Button } from "./ui/button";
 import { useState } from "react";
-import { Form } from "react-router-dom";
 
 export function RateModal({
   c,
@@ -54,14 +53,9 @@ export function RateModal({
           <RateStars selected={selected} setSelected={setSelected} />
         </div>
         <div>
-          <Form method="POST" action="/rated">
-            <input type="hidden" name="id" value={c.id} />
-            <input type="hidden" name="contentType" value={contentType} />
-            <input type="hidden" name="rating" value={selected} />
-            <Button type="submit" className="w-full">
-              Rate
-            </Button>
-          </Form>
+          <Button type="submit" className="w-full">
+            Rate
+          </Button>
         </div>
       </div>
     </div>

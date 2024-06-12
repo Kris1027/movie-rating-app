@@ -14,13 +14,12 @@ import { getPopularMovies } from "./api/getPopularMovies.ts";
 import { getPopularSeries } from "./api/getPopularSeries.ts";
 import { homeLoader } from "./api/homeLoader.ts";
 import { detailsLoader } from "./api/detailsLoader.ts";
-import { addRatingAction } from "./api/addRatingAction.ts";
 import { createGuestSession } from "./api/createGuestSession.ts";
 import { Login } from "./components/login.tsx";
 
 const router = createBrowserRouter([
   {
-    path: "",
+    path: "/",
     element: <Layout />,
     children: [
       {
@@ -51,7 +50,6 @@ const router = createBrowserRouter([
       {
         path: "/rated",
         element: <RatedPage />,
-        action: addRatingAction,
       },
     ],
   },
