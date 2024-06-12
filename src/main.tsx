@@ -5,7 +5,6 @@ import "./index.css";
 
 import { Layout } from "./components/layout.tsx";
 import { HomePage } from "./pages/home-page.tsx";
-import { LoginPage } from "./pages/login-page.tsx";
 import { MoviesPage } from "./pages/movies-page.tsx";
 import { SeriesPage } from "./pages/series-page.tsx";
 import { RatedPage } from "./pages/rated-page.tsx";
@@ -17,6 +16,7 @@ import { homeLoader } from "./api/homeLoader.ts";
 import { detailsLoader } from "./api/detailsLoader.ts";
 import { addRatingAction } from "./api/addRatingAction.ts";
 import { createGuestSession } from "./api/createGuestSession.ts";
+import { Login } from "./components/login.tsx";
 
 const router = createBrowserRouter([
   {
@@ -24,14 +24,14 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
+        path: "login",
+        element: <Login />,
+        action: createGuestSession,
+      },
+      {
         path: "/",
         element: <HomePage />,
         loader: homeLoader,
-      },
-      {
-        path: "/login",
-        element: <LoginPage />,
-        action: createGuestSession,
       },
       {
         path: "/movie",

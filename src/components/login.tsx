@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Form, useActionData, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-export function LoginPage() {
+export function Login() {
   const guestSessionId = useActionData() as string;
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export function LoginPage() {
 
   return (
     <>
-      <Form action="/login" method="post">
+      <Form action="login" method="post">
         {!isLogIn && (
           <Button variant="destructive" type="submit">
             Log in as a guest
