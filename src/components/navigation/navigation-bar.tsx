@@ -1,4 +1,3 @@
-import Sign from "../authentication/sign";
 import { Logo } from "./logo";
 import { Menu } from "./menu";
 import { ModeToggle } from "./mode-toggle";
@@ -10,7 +9,6 @@ export function NavigationBar() {
       <div className="flex gap-10">
         <Menu />
         <ModeToggle />
-        <Sign />
       </div>
     </header>
   );
