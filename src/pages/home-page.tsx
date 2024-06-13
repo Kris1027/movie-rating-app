@@ -2,10 +2,8 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchData } from "@/api/fetch-data";
-
 import { ContentTypeProps, type ItemProps } from "@/types/data-types";
 import { isMovie } from "@/lib/is-movie";
-
 import { Button } from "@/components/ui/button";
 
 export function HomePage() {
