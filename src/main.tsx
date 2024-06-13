@@ -3,53 +3,18 @@ import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
 
-import { Layout } from "./components/layout.tsx";
+import { MainLayout } from "./layouts/main-layout.tsx";
 import { HomePage } from "./pages/home-page.tsx";
-import { MoviesPage } from "./pages/movies-page.tsx";
-import { SeriesPage } from "./pages/series-page.tsx";
-import { RatedPage } from "./pages/rated-page.tsx";
-import { ContentDetailsPage } from "./pages/content-details-page.tsx";
-
-import { getPopularMovies } from "./api/getPopularMovies.ts";
-import { getPopularSeries } from "./api/getPopularSeries.ts";
-import { homeLoader } from "./api/homeLoader.ts";
-import { detailsLoader } from "./api/detailsLoader.ts";
-import { createGuestSession } from "./api/createGuestSession.ts";
-import { Login } from "./components/login.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <MainLayout />,
     children: [
       {
-        path: "login",
-        element: <Login />,
-        action: createGuestSession,
-      },
-      {
         path: "/",
+        index: true,
         element: <HomePage />,
-        loader: homeLoader,
-      },
-      {
-        path: "/movie",
-        element: <MoviesPage />,
-        loader: getPopularMovies,
-      },
-      {
-        path: "/tv",
-        element: <SeriesPage />,
-        loader: getPopularSeries,
-      },
-      {
-        path: "/:contentType/:id",
-        element: <ContentDetailsPage />,
-        loader: detailsLoader,
-      },
-      {
-        path: "/rated",
-        element: <RatedPage />,
       },
     ],
   },

@@ -6,12 +6,7 @@ import {
   navigationMenuTriggerStyle,
 } from "../ui/navigation-menu";
 
-const pages = [
-  { title: "Home", href: "/" },
-  { title: "Movies", href: "/movie" },
-  { title: "Series", href: "/tv" },
-  { title: "Rated", href: "/rated" },
-];
+const pages = [{ title: "Home", href: "/" }];
 
 export function Menu() {
   return (
