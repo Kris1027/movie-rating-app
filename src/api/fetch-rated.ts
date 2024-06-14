@@ -1,7 +1,7 @@
 import { API_KEY, DATA_URL } from "@/lib/constants";
-import { RatedContentType } from "@/types/data-types";
+import { RatedContentTypeProps } from "@/types/data-types";
 
-export async function fetchRated(contentType: RatedContentType) {
+export async function fetchRated(contentType: RatedContentTypeProps) {
   const guestSessionId = localStorage.getItem("guest_session_id");
 
   if (!guestSessionId) {

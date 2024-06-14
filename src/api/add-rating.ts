@@ -1,8 +1,8 @@
 import { API_KEY, DATA_URL } from "@/lib/constants";
-import { ContentTypeProps, RatedContentType } from "@/types/data-types";
+import { ContentTypeProps, RatedContentTypeProps } from "@/types/data-types";
 
 export async function addRating(
-  contentType: ContentTypeProps | RatedContentType,
+  contentType: ContentTypeProps | RatedContentTypeProps,
   id: number,
   rating: number
 ) {
