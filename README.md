@@ -12,6 +12,7 @@
 - JavaScript
 - React
 - React Router
+- TanStack Query
 - TypeScript
 - Tailwind
 - Shadcn/ui
@@ -30,9 +31,9 @@
 - [x] routing via react router
 - [x] detail content page with url
 - [x] rating stars in rate modal, imdb inspiration
-- [ ] add Auth
-- [ ] rating page where are rated movies or series by user
-- [ ] skeleton component while loading data for cards
-- [ ] pagination
-- [ ] search function
+- [x] login as a guest, create guest session
+- [x] rating page where are rated movies or series by user
+- [x] pagination
+- [x] search function
+- [ ] add styling
 - [ ] responsive for multi devices
