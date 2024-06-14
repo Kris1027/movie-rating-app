@@ -1,4 +1,3 @@
-import { isMovie } from "@/lib/is-movie";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import {
   ContentTypeProps,
@@ -6,10 +5,8 @@ import {
   RatedContentTypeProps,
 } from "@/types/data-types";
 import { IMAGE_URL } from "@/lib/constants";
-import { Button } from "./ui/button";
-import { useMutation } from "@tanstack/react-query";
-import { addRating } from "@/api/add-rating";
-import { useState } from "react";
+import { RateModal } from "./rate-modal";
+import { isMovie } from "@/lib/is-movie";
 
 export function MediaCard({
   item,
@@ -18,19 +15,6 @@ export function MediaCard({
   item: ItemProps;
   contentType: ContentTypeProps | RatedContentTypeProps;
 }) {
-  const [rating, setRating] = useState(0);
-
-  const mutation = useMutation({
-    mutationFn: () => {
-      return addRating(contentType, item.id, rating);
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    mutation.mutate();
-  };
-
   return (
     <Card>
       <CardHeader>
@@ -43,17 +27,7 @@ export function MediaCard({
       </CardHeader>
       <CardTitle>{isMovie(item) ? item.title : item.name}</CardTitle>
       <CardContent>
-        {!item.rating && (
-          <form onSubmit={handleSubmit} className="flex flex-col text-black">
-            <input
-              type="number"
-              min={1}
-              max={10}
-              onChange={(e) => setRating(Number(e.target.value))}
-            />
-            <Button>Add Rating</Button>
-          </form>
-        )}
+        {!item.rating && <RateModal item={item} contentType={contentType} />}
       </CardContent>
     </Card>
   );
