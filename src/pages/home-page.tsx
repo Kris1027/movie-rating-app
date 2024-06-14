@@ -6,6 +6,7 @@ import { ContentTypeProps } from "@/types/data-types";
 import { Button } from "@/components/ui/button";
 import { MediaList } from "@/components/media-list";
 import { Heading } from "@/components/ui/heading";
+import { ContentSwitcher } from "@/components/content-switcher";
 
 export function HomePage() {
   const [contentType, setContentType] = useState<ContentTypeProps>(
@@ -35,24 +36,13 @@ export function HomePage() {
     }
   };
 
+  isLoading && <p>Loading...</p>;
+
+  isError && <p className="text-destructive">Error: {error.message}</p>;
+
   return (
     <main className="p-4 flex flex-col items-center">
-      <div className="my-4">
-        <Button
-          variant={contentType === "movie" ? "default" : "secondary"}
-          onClick={() => handleToggle(ContentTypeProps.movie)}
-        >
-          Show Movies
-        </Button>
-        <Button
-          variant={contentType === "tv" ? "default" : "secondary"}
-          onClick={() => handleToggle(ContentTypeProps.tv)}
-        >
-          Show TV Shows
-        </Button>
-      </div>
-      {isLoading && <p>Loading...</p>}
-      {isError && <p className="text-destructive">Error: {error.message}</p>}
+      <ContentSwitcher contentType={contentType} handleToggle={handleToggle} />
       {data && (
         <div className="flex flex-col items-center text-center">
           {contentType === "movie" ? (
