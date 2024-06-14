@@ -3,12 +3,12 @@ import { useQuery } from "@tanstack/react-query";
 
 import { fetchRated } from "@/api/fetch-rated";
 import { Button } from "@/components/ui/button";
-import { RatedContentType } from "@/types/data-types";
+import { RatedContentTypeProps } from "@/types/data-types";
 import { MediaList } from "@/components/media-list";
 
 export function RatedPage() {
-  const [contentType, setContentType] = useState<RatedContentType>(
-    RatedContentType.movies
+  const [contentType, setContentType] = useState<RatedContentTypeProps>(
+    RatedContentTypeProps.movies
   );
 
   const { data, isLoading, isError } = useQuery({
@@ -21,7 +21,7 @@ export function RatedPage() {
     return <p>You must be logged in to view this page</p>;
   }
 
-  const handleToggle = (contentType: RatedContentType) => {
+  const handleToggle = (contentType: RatedContentTypeProps) => {
     setContentType(contentType);
   };
 
@@ -35,13 +35,13 @@ export function RatedPage() {
       <div className="my-4">
         <Button
           variant="default"
-          onClick={() => handleToggle(RatedContentType.movies)}
+          onClick={() => handleToggle(RatedContentTypeProps.movies)}
         >
           Fetch Movies
         </Button>
         <Button
           variant="default"
-          onClick={() => handleToggle(RatedContentType.tv)}
+          onClick={() => handleToggle(RatedContentTypeProps.tv)}
         >
           Fetch TV Shows
         </Button>

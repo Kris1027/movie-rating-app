@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import {
   ContentTypeProps,
   ItemProps,
-  RatedContentType,
+  RatedContentTypeProps,
 } from "@/types/data-types";
 import { IMAGE_URL } from "@/lib/constants";
 import { Button } from "./ui/button";
@@ -16,7 +16,7 @@ export function MediaCard({
   contentType,
 }: {
   item: ItemProps;
-  contentType: ContentTypeProps | RatedContentType;
+  contentType: ContentTypeProps | RatedContentTypeProps;
 }) {
   const [rating, setRating] = useState(0);
 

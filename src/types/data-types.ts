@@ -3,7 +3,7 @@ export enum ContentTypeProps {
   tv = "tv",
 }
 
-export enum RatedContentType {
+export enum RatedContentTypeProps {
   movies = "movies",
   tv = "tv",
 }
