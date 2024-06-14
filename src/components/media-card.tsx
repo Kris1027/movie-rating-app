@@ -1,4 +1,3 @@
-import { isMovie } from "@/lib/is-movie";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import {
   ContentTypeProps,
@@ -6,10 +5,9 @@ import {
   RatedContentTypeProps,
 } from "@/types/data-types";
 import { IMAGE_URL } from "@/lib/constants";
-import { Button } from "./ui/button";
-import { useMutation } from "@tanstack/react-query";
-import { addRating } from "@/api/add-rating";
-import { useState } from "react";
+import { RateModal } from "./rate-modal";
+import { isMovie } from "@/lib/is-movie";
+import { Star } from "lucide-react";
 
 export function MediaCard({
   item,
@@ -18,42 +16,31 @@ export function MediaCard({
   item: ItemProps;
   contentType: ContentTypeProps | RatedContentTypeProps;
 }) {
-  const [rating, setRating] = useState(0);
-
-  const mutation = useMutation({
-    mutationFn: () => {
-      return addRating(contentType, item.id, rating);
-    },
-  });
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    mutation.mutate();
-  };
-
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="flex flex-col items-center gap-4">
         <img
           src={`${IMAGE_URL}/${item.poster_path}`}
           alt={isMovie(item) ? item.title : item.name}
-          width={200}
-          height={300}
+          width={300}
         />
+        <CardTitle className="text-center">
+          {isMovie(item) ? item.title : item.name}
+        </CardTitle>
       </CardHeader>
-      <CardTitle>{isMovie(item) ? item.title : item.name}</CardTitle>
-      <CardContent>
-        {!item.rating && (
-          <form onSubmit={handleSubmit} className="flex flex-col text-black">
-            <input
-              type="number"
-              min={1}
-              max={10}
-              onChange={(e) => setRating(Number(e.target.value))}
-            />
-            <Button>Add Rating</Button>
-          </form>
+      <CardContent className="flex items-center py-4">
+        {item.rating ? (
+          <div className="flex gap-2">
+            <Star color="#009ffd" />
+            <p>{item.rating}</p>
+          </div>
+        ) : (
+          <RateModal item={item} contentType={contentType} />
         )}
+        <div className="flex gap-2">
+          <Star color="#fcab10" />
+          <p>{item.vote_average.toFixed(2)}</p>
+        </div>
       </CardContent>
     </Card>
   );

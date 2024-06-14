@@ -5,6 +5,7 @@ import { fetchData } from "@/api/fetch-data";
 import { ContentTypeProps } from "@/types/data-types";
 import { Button } from "@/components/ui/button";
 import { MediaList } from "@/components/media-list";
+import { Heading } from "@/components/ui/heading";
 
 export function HomePage() {
   const [contentType, setContentType] = useState<ContentTypeProps>(
@@ -35,29 +36,44 @@ export function HomePage() {
   };
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold">Home Page</h1>
+    <main className="p-4 flex flex-col items-center">
       <div className="my-4">
         <Button
-          variant="default"
+          variant={contentType === "movie" ? "default" : "secondary"}
           onClick={() => handleToggle(ContentTypeProps.movie)}
         >
-          Fetch Movies
+          Show Movies
         </Button>
         <Button
-          variant="default"
+          variant={contentType === "tv" ? "default" : "secondary"}
           onClick={() => handleToggle(ContentTypeProps.tv)}
         >
-          Fetch TV Shows
+          Show TV Shows
         </Button>
       </div>
       {isLoading && <p>Loading...</p>}
       {isError && <p className="text-destructive">Error: {error.message}</p>}
       {data && (
-        <div>
-          <h2 className="text-2xl font-bold">
-            {contentType === "movie" ? "Popular Movies" : "Popular TV Shows"}
-          </h2>
+        <div className="flex flex-col items-center text-center">
+          {contentType === "movie" ? (
+            <>
+              <Heading>Welcome to Our Movie Oasis</Heading>
+              <p className="pb-4">
+                Discover the latest and most popular films right here. Dive into
+                a world of cinematic wonder and find your next favorite movie
+                today
+              </p>
+            </>
+          ) : (
+            <>
+              <Heading>Welcome to Our TV Show Haven</Heading>
+              <p className="pb-4">
+                Explore the latest and most popular TV shows. Dive into
+                captivating series and find your next binge-worthy favorite
+                today
+              </p>
+            </>
+          )}
           <MediaList data={data} contentType={contentType} />
           <div className="my-4">
             <Button
@@ -80,6 +96,6 @@ export function HomePage() {
           </div>
         </div>
       )}
-    </div>
+    </main>
   );
 }

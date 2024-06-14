@@ -14,6 +14,7 @@ export type MovieProps = {
   overview: string;
   poster_path: string;
   rating?: number;
+  vote_average: number;
 };
 
 export type TvProps = {
@@ -22,6 +23,7 @@ export type TvProps = {
   overview: string;
   poster_path: string;
   rating?: number;
+  vote_average: number;
 };
 
 export type ItemProps = MovieProps | TvProps;
