@@ -1,4 +1,8 @@
-import { ContentTypeProps, ItemProps } from "@/types/data-types";
+import {
+  ContentTypeProps,
+  ItemProps,
+  RatedContentType,
+} from "@/types/data-types";
 import { MediaCard } from "./media-card";
 
 export function MediaList({
@@ -8,7 +12,7 @@ export function MediaList({
   data: {
     results: ItemProps[];
   };
-  contentType: ContentTypeProps;
+  contentType: ContentTypeProps | RatedContentType;
 }) {
   return (
     <div className="flex flex-wrap">

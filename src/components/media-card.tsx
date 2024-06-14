@@ -1,6 +1,10 @@
 import { isMovie } from "@/lib/is-movie";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { ContentTypeProps, ItemProps } from "@/types/data-types";
+import {
+  ContentTypeProps,
+  ItemProps,
+  RatedContentType,
+} from "@/types/data-types";
 import { IMAGE_URL } from "@/lib/constants";
 import { Button } from "./ui/button";
 import { useMutation } from "@tanstack/react-query";
@@ -12,7 +16,7 @@ export function MediaCard({
   contentType,
 }: {
   item: ItemProps;
-  contentType: ContentTypeProps;
+  contentType: ContentTypeProps | RatedContentType;
 }) {
   const [rating, setRating] = useState(0);
 
@@ -39,15 +43,17 @@ export function MediaCard({
       </CardHeader>
       <CardTitle>{isMovie(item) ? item.title : item.name}</CardTitle>
       <CardContent>
-        <form onSubmit={handleSubmit} className="flex flex-col text-black">
-          <input
-            type="number"
-            min={1}
-            max={10}
-            onChange={(e) => setRating(Number(e.target.value))}
-          />
-          <Button>Add Rating</Button>
-        </form>
+        {!item.rating && (
+          <form onSubmit={handleSubmit} className="flex flex-col text-black">
+            <input
+              type="number"
+              min={1}
+              max={10}
+              onChange={(e) => setRating(Number(e.target.value))}
+            />
+            <Button>Add Rating</Button>
+          </form>
+        )}
       </CardContent>
     </Card>
   );

@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import { MainLayout } from "./layouts/main-layout.tsx";
 import { HomePage } from "./pages/home-page.tsx";
+import { RatedPage } from "./pages/rated-page.tsx";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         path: "/",
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: "/rated",
+        element: <RatedPage />,
       },
     ],
   },

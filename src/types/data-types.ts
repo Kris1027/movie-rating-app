@@ -3,11 +3,17 @@ export enum ContentTypeProps {
   tv = "tv",
 }
 
+export enum RatedContentType {
+  movies = "movies",
+  tv = "tv",
+}
+
 export type MovieProps = {
   id: number;
   title: string;
   overview: string;
   poster_path: string;
+  rating?: number;
 };
 
 export type TvProps = {
@@ -15,6 +21,7 @@ export type TvProps = {
   name: string;
   overview: string;
   poster_path: string;
+  rating?: number;
 };
 
 export type ItemProps = MovieProps | TvProps;
