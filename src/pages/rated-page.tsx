@@ -16,18 +16,22 @@ export function RatedPage() {
     queryFn: () => fetchRated(contentType),
   });
 
+  const isLoggedIn: boolean = !!localStorage.getItem("guest_session_id");
+  if (!isLoggedIn) {
+    return <p>You must be logged in to view this page</p>;
+  }
+
   const handleToggle = (contentType: RatedContentType) => {
     setContentType(contentType);
   };
 
+  if (!data) return <p>You need to rate at least one item</p>;
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p className="text-destructive">Error: {isError}</p>;
 
-  console.log(data);
-
   return (
     <div>
-      <h1 className="text-3xl font-bold">Home Page</h1>
+      <h1 className="text-3xl font-bold">Rated Page</h1>
       <div className="my-4">
         <Button
           variant="default"
