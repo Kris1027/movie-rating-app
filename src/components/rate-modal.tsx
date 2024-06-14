@@ -46,9 +46,9 @@ export function RateModal({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <button onClick={() => setIsOpen(true)}>
+        <Button variant="ghost" onClick={() => setIsOpen(true)}>
           <Star color="#009ffd" />
-        </button>
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader className="flex flex-col items-center">
