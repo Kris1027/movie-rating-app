@@ -58,7 +58,7 @@ export function HomePage() {
           <h2 className="text-2xl font-bold">
             {contentType === "movie" ? "Popular Movies" : "Popular TV Shows"}
           </h2>
-          <MediaList data={data} />
+          <MediaList data={data} contentType={contentType} />
           <div className="my-4">
             <Button
               variant="default"
