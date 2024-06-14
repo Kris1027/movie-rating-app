@@ -9,6 +9,7 @@ import {
 const pages = [
   { title: "Home", href: "/" },
   { title: "Rated", href: "/rated" },
+  { title: "Search", href: "/search" },
 ];
 
 export function Menu() {
