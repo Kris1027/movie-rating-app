@@ -39,6 +39,7 @@ export function RateModal({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (selected === 0) return;
     setRating(selected);
     mutation.mutate();
   };
@@ -64,12 +65,14 @@ export function RateModal({
             </p>
           </div>
           <p className="uppercase font-bold text-[#fcab10] pt-12">Rate this</p>
-          <DialogTitle className="text-3xl">
+          <DialogTitle className="text-3xl text-center">
             {isMovie(item) ? item.title : item.name}
           </DialogTitle>
           <RateStars selected={selected} setSelected={setSelected} />
-          <form onSubmit={handleSubmit}>
-            <Button type="submit">Rate</Button>
+          <form onSubmit={handleSubmit} className="w-full">
+            <Button type="submit" className="w-full" variant="secondary">
+              Rate
+            </Button>
           </form>
         </DialogHeader>
       </DialogContent>
