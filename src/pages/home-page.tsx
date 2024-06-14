@@ -2,9 +2,9 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchData } from "@/api/fetch-data";
-import { ContentTypeProps, type ItemProps } from "@/types/data-types";
-import { isMovie } from "@/lib/is-movie";
+import { ContentTypeProps } from "@/types/data-types";
 import { Button } from "@/components/ui/button";
+import { MediaList } from "@/components/media-list";
 
 export function HomePage() {
   const [contentType, setContentType] = useState<ContentTypeProps>(
@@ -58,9 +58,7 @@ export function HomePage() {
           <h2 className="text-2xl font-bold">
             {contentType === "movie" ? "Popular Movies" : "Popular TV Shows"}
           </h2>
-          {data.results.map((item: ItemProps) => (
-            <p key={item.id}>{isMovie(item) ? item.title : item.name}</p>
-          ))}
+          <MediaList data={data} />
           <div className="my-4">
             <Button
               variant="default"
