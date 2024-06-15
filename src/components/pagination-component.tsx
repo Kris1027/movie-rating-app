@@ -7,16 +7,21 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { PaginationProps } from "@/types/data-types";
 
-export function PaginationComponent({
-  page,
-  handleNextPage,
-  handlePreviousPage,
-}: {
-  page: number;
-  handleNextPage: () => void;
-  handlePreviousPage: () => void;
-}) {
+export function PaginationComponent({ page, setPage, data }: PaginationProps) {
+  const handleNextPage = () => {
+    if (data?.total_pages && page < data.total_pages) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePreviousPage = () => {
+    if (page > 1) {
+      setPage((prevPage) => prevPage - 1);
+    }
+  };
+
   return (
     <Pagination className="pt-4">
       <PaginationContent>

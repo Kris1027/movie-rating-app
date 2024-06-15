@@ -27,3 +27,11 @@ export type TvProps = {
 };
 
 export type ItemProps = MovieProps | TvProps;
+
+export type PaginationProps = {
+  page: number;
+  setPage: React.Dispatch<React.SetStateAction<number>>;
+  data: {
+    total_pages: number;
+  };
+};
