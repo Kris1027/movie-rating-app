@@ -33,10 +33,7 @@ export function MediaCard({
         {item.rating ? (
           <div className="flex gap-2 items-center">
             <Star color="#009ffd" size={32} />
-            <p
-              className="font-bold text-2xl"
-              style={{ color: ratedColor(item.rating) }}
-            >
+            <p className="text-2xl" style={{ color: ratedColor(item.rating) }}>
               {item.rating}
             </p>
           </div>
@@ -46,7 +43,7 @@ export function MediaCard({
         <div className="flex gap-2 items-center">
           <Star color="#f3ca40" size={32} />
           <p
-            className="font-bold text-2xl"
+            className="text-2xl"
             style={{ color: ratedColor(item.vote_average) }}
           >
             {item.vote_average.toFixed(2)}
