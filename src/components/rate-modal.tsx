@@ -48,7 +48,7 @@ export function RateModal({
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
         <Button variant="ghost" onClick={() => setIsOpen(true)}>
-          <Star color="#009ffd" />
+          <Star color="#009ffd" size={32} />
         </Button>
       </DialogTrigger>
       <DialogContent>

@@ -8,6 +8,7 @@ import { IMAGE_URL } from "@/lib/constants";
 import { RateModal } from "./rate-modal";
 import { isMovie } from "@/lib/is-movie";
 import { Star } from "lucide-react";
+import { ratedColor } from "@/lib/rated-color";
 
 export function MediaCard({
   item,
@@ -30,16 +31,26 @@ export function MediaCard({
       </CardHeader>
       <CardContent className="flex items-center py-4">
         {item.rating ? (
-          <div className="flex gap-2">
-            <Star color="#009ffd" />
-            <p>{item.rating}</p>
+          <div className="flex gap-2 items-center">
+            <Star color="#009ffd" size={32} />
+            <p
+              className="font-bold text-2xl"
+              style={{ color: ratedColor(item.rating) }}
+            >
+              {item.rating}
+            </p>
           </div>
         ) : (
           <RateModal item={item} contentType={contentType} />
         )}
-        <div className="flex gap-2">
-          <Star color="#fcab10" />
-          <p>{item.vote_average.toFixed(2)}</p>
+        <div className="flex gap-2 items-center">
+          <Star color="#f3ca40" size={32} />
+          <p
+            className="font-bold text-2xl"
+            style={{ color: ratedColor(item.vote_average) }}
+          >
+            {item.vote_average.toFixed(2)}
+          </p>
         </div>
       </CardContent>
     </Card>
