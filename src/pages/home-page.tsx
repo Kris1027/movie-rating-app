@@ -3,10 +3,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { fetchData } from "@/api/fetch-data";
 import { ContentTypeProps } from "@/types/data-types";
-import { Button } from "@/components/ui/button";
 import { MediaList } from "@/components/media-list";
 import { Heading } from "@/components/ui/heading";
 import { ContentSwitcher } from "@/components/content-switcher";
+import { PaginationComponent } from "@/components/pagination-component";
 
 export function HomePage() {
   const [contentType, setContentType] = useState<ContentTypeProps>(
@@ -36,8 +36,8 @@ export function HomePage() {
     }
   };
 
+  if (!data) return <p>You need to rate at least one item</p>;
   isLoading && <p>Loading...</p>;
-
   isError && <p className="text-destructive">Error: {error.message}</p>;
 
   return (
@@ -65,25 +65,11 @@ export function HomePage() {
             </>
           )}
           <MediaList data={data} contentType={contentType} />
-          <div className="my-4">
-            <Button
-              variant="default"
-              onClick={handlePreviousPage}
-              disabled={page === 1}
-            >
-              Previous
-            </Button>
-            <Button
-              variant="default"
-              onClick={handleNextPage}
-              disabled={page === data.total_pages}
-            >
-              Next
-            </Button>
-            <p>
-              Page {page} of {data.total_pages}
-            </p>
-          </div>
+          <PaginationComponent
+            page={page}
+            handleNextPage={handleNextPage}
+            handlePreviousPage={handlePreviousPage}
+          />
         </div>
       )}
     </main>
