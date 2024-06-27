@@ -46,7 +46,7 @@ export function MediaCard({
             className="text-2xl"
             style={{ color: ratedColor(item.vote_average) }}
           >
-            {item.vote_average.toFixed(2)}
+            {item.vote_average.toFixed(1)}
           </p>
         </div>
       </CardContent>
