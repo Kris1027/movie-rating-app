@@ -8,9 +8,7 @@ import { useState } from "react";
 
 export function SearchPage() {
   const [query, setQuery] = useState("");
-  const [searchResults, setSearchResults] = useState<ItemProps[] | undefined>(
-    undefined
-  );
+  const [searchResults, setSearchResults] = useState<ItemProps[] | null>(null);
 
   const { mutate, data, isPending, isError } = useMutation({
     mutationFn: () => searchData(query),
