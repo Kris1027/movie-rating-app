@@ -1,4 +1,5 @@
 import { searchData } from "@/api/search-data";
+import { Loader } from "@/components/loader";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { isMovie } from "@/lib/is-movie";
@@ -22,7 +23,6 @@ export function SearchPage() {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     mutate();
-    setQuery("");
   };
 
   const isLoggedIn = Boolean(localStorage.getItem("guest_session_id"));
@@ -47,6 +47,7 @@ export function SearchPage() {
         </Button>
       </form>
 
+      {isPending && <Loader />}
       {isError && <p>An error occurred. Please try again.</p>}
 
       {searchResults && (
