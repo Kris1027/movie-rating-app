@@ -35,5 +35,7 @@
 - [x] rating page where are rated movies or series by user
 - [x] pagination
 - [x] search function
-- [ ] add styling
+- [ ] fix loading function and error handling
+- [ ] api for detailed media
+- [ ] detailed media page and connect with media card and searching
 - [ ] responsive for multi devices
