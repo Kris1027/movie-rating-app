@@ -34,7 +34,7 @@ export function MediaCard({
           <div className="flex gap-2 items-center">
             <Star color="#009ffd" size={32} />
             <p className="text-2xl" style={{ color: ratedColor(item.rating) }}>
-              {item.rating}
+              {item.rating.toFixed(1)}
             </p>
           </div>
         ) : (

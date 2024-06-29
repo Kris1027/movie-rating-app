@@ -4,7 +4,7 @@ import { Heading } from "./ui/heading";
 
 export function RatedContentSwitcher({
   handleToggle,
-  contentType,
+  contentType = RatedContentTypeProps.movies,
 }: {
   handleToggle: (contentType: RatedContentTypeProps) => void;
   contentType: RatedContentTypeProps;

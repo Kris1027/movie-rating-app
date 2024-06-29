@@ -6,6 +6,7 @@ import { ContentTypeProps } from "@/types/data-types";
 import { MediaList } from "@/components/media-list";
 import { ContentSwitcher } from "@/components/content-switcher";
 import { PaginationComponent } from "@/components/pagination-component";
+import { Loader } from "@/components/loader";
 
 export function HomePage() {
   const [contentType, setContentType] = useState<ContentTypeProps>(
@@ -13,7 +14,7 @@ export function HomePage() {
   );
   const [page, setPage] = useState(1);
 
-  const { data, isLoading, isError, error } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: [contentType, page],
     queryFn: () => fetchData(contentType, page),
   });
@@ -23,9 +24,12 @@ export function HomePage() {
     setPage(1);
   };
 
-  if (!data) return <p>Data not found</p>;
-  isLoading && <p>Loading...</p>;
-  isError && <p className="text-destructive">Error: {error.message}</p>;
+  if (isLoading) return <Loader />;
+  if (!data || data.length === 0) {
+    return <p>You haven't rated any {contentType} yet.</p>;
+  } else if (isError) {
+    return <p>An error occurred. Please try again.</p>;
+  }
 
   return (
     <main className="p-4 flex flex-col items-center">

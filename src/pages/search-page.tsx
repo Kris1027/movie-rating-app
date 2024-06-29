@@ -11,7 +11,7 @@ export function SearchPage() {
   const [query, setQuery] = useState("");
   const [searchResults, setSearchResults] = useState<ItemProps[] | null>(null);
 
-  const { mutate, data, isPending, isError } = useMutation({
+  const { mutate, isPending, isError } = useMutation({
     mutationFn: () => searchData(query),
     mutationKey: ["search", query],
     onSuccess: (data) => {
@@ -31,8 +31,6 @@ export function SearchPage() {
     return <p>You must be logged in to view this page</p>;
   }
 
-  console.log(data);
-
   return (
     <main className="p-4 flex flex-col items-center">
       <form className="text-black flex gap-4 pb-4" onSubmit={handleSubmit}>
@@ -49,6 +47,7 @@ export function SearchPage() {
 
       {isPending && <Loader />}
       {isError && <p>An error occurred. Please try again.</p>}
+      {!isLoggedIn && <p>You must be logged in to view this page</p>}
 
       {searchResults && (
         <div>

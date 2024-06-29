@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import { Heading } from "./ui/heading";
 
 export function ContentSwitcher({
-  contentType,
+  contentType = ContentTypeProps.movie,
   handleToggle,
 }: {
   contentType: ContentTypeProps;
