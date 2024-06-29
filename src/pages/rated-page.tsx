@@ -24,11 +24,6 @@ export function RatedPage() {
     retry: false,
   });
 
-  const isLoggedIn: boolean = !!localStorage.getItem("guest_session_id");
-  if (!isLoggedIn) {
-    return <p>You must be logged in to view this page</p>;
-  }
-
   const handleToggle = (contentType: RatedContentTypeProps) => {
     setContentType(contentType);
   };

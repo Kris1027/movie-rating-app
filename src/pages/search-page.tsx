@@ -25,12 +25,6 @@ export function SearchPage() {
     mutate();
   };
 
-  const isLoggedIn = Boolean(localStorage.getItem("guest_session_id"));
-
-  if (!isLoggedIn) {
-    return <p>You must be logged in to view this page</p>;
-  }
-
   return (
     <main className="p-4 flex flex-col items-center">
       <form className="text-black flex gap-4 pb-4" onSubmit={handleSubmit}>
@@ -47,7 +41,6 @@ export function SearchPage() {
 
       {isPending && <Loader />}
       {isError && <p>An error occurred. Please try again.</p>}
-      {!isLoggedIn && <p>You must be logged in to view this page</p>}
 
       {searchResults && (
         <div>
