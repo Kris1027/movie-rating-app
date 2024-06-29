@@ -36,7 +36,7 @@
 - [x] pagination
 - [x] search function
 - [x] fix loading function and error handling
-- [ ] build page with info for not logged users
+- [x] build page with info for not logged users
 - [ ] build page where is no rated media
 - [ ] api for detailed media
 - [ ] detailed media page and connect with media card and searching

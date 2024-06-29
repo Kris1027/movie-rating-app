@@ -37,7 +37,7 @@ export function RatedPage() {
     contentType === RatedContentTypeProps.movies ? moviesData : tvData;
 
   return (
-    <main className="p-4 flex flex-col items-center">
+    <main className="p-4 flex flex-col items-center min-h-[calc(100vh-8rem)]">
       <RatedContentSwitcher
         handleToggle={handleToggle}
         contentType={contentType}

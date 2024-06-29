@@ -26,7 +26,7 @@ export function SearchPage() {
   };
 
   return (
-    <main className="p-4 flex flex-col items-center">
+    <main className="p-4 flex flex-col items-center min-h-[calc(100vh-8rem)]">
       <form className="text-black flex gap-4 pb-4" onSubmit={handleSubmit}>
         <Input
           className="text-primary"

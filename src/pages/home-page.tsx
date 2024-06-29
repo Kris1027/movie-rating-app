@@ -32,7 +32,7 @@ export function HomePage() {
   }
 
   return (
-    <main className="p-4 flex flex-col items-center">
+    <main className="p-4 flex flex-col items-center min-h-[calc(100vh-8rem)]">
       <ContentSwitcher contentType={contentType} handleToggle={handleToggle} />
       <MediaList data={data} contentType={contentType} />
       <PaginationComponent page={page} setPage={setPage} data={data} />
