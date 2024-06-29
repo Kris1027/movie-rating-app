@@ -12,9 +12,15 @@ export function RatedPage() {
     RatedContentTypeProps.movies
   );
 
-  const { data, isLoading, isError } = useQuery({
-    queryKey: ["rated", contentType],
-    queryFn: () => fetchRated(contentType),
+  const { data: moviesData, isLoading: isMoviesLoading } = useQuery({
+    queryKey: ["rated", RatedContentTypeProps.movies],
+    queryFn: () => fetchRated(RatedContentTypeProps.movies),
+    retry: false,
+  });
+
+  const { data: tvData, isLoading: isTvLoading } = useQuery({
+    queryKey: ["rated", RatedContentTypeProps.tv],
+    queryFn: () => fetchRated(RatedContentTypeProps.tv),
     retry: false,
   });
 
@@ -27,20 +33,29 @@ export function RatedPage() {
     setContentType(contentType);
   };
 
-  if (isLoading) return <Loader />;
-  if (!data || data.length === 0) {
-    return <p>You haven't rated any {contentType} yet.</p>;
-  } else if (isError) {
-    return <p>An error occurred. Please try again.</p>;
+  if (isMoviesLoading || isTvLoading) return <Loader />;
+
+  const hasRatedMovies = moviesData?.results?.length > 0;
+  const hasRatedTvShows = tvData?.results?.length > 0;
+
+  if (!hasRatedMovies && !hasRatedTvShows) {
+    return <p>You haven't rated any movies or TV shows yet.</p>;
   }
+
+  const currentData =
+    contentType === RatedContentTypeProps.movies ? moviesData : tvData;
 
   return (
     <main className="p-4 flex flex-col items-center">
       <RatedContentSwitcher
         handleToggle={handleToggle}
         contentType={contentType}
+        hasRatedMovies={hasRatedMovies}
+        hasRatedTvShows={hasRatedTvShows}
       />
-      <MediaList data={data} contentType={contentType} />
+      {currentData && (
+        <MediaList data={currentData} contentType={contentType} />
+      )}
     </main>
   );
 }
