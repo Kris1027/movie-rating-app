@@ -38,10 +38,6 @@ export function RatedPage() {
   const hasRatedMovies = moviesData?.results?.length > 0;
   const hasRatedTvShows = tvData?.results?.length > 0;
 
-  if (!hasRatedMovies && !hasRatedTvShows) {
-    return <p>You haven't rated any movies or TV shows yet.</p>;
-  }
-
   const currentData =
     contentType === RatedContentTypeProps.movies ? moviesData : tvData;
 
