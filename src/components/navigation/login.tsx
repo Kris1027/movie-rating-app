@@ -11,7 +11,10 @@ export function Login() {
   const { data, mutate, isError, isPending, error } = useMutation({
     mutationFn: createGuestSession,
     mutationKey: ["create-guest-session"],
-    onSuccess: () => setIsLoggedIn(true),
+    onSuccess: () => {
+      setIsLoggedIn(true);
+      window.location.reload();
+    },
   });
 
   const handleLogin = async (event: React.FormEvent) => {
@@ -22,12 +25,14 @@ export function Login() {
   const handleLogout = () => {
     localStorage.removeItem("guest_session_id");
     setIsLoggedIn(false);
+    window.location.reload();
   };
 
   useEffect(() => {
     if (data) {
       localStorage.setItem("guest_session_id", data.guest_session_id);
       setIsLoggedIn(true);
+      window.location.reload();
     }
   }, [data]);
 
@@ -43,7 +48,7 @@ export function Login() {
           onClick={handleLogin}
           disabled={isPending}
         >
-          {isPending ? "Logging in..." : "Login as a Guest"}
+          {isPending ? "Logging in..." : "Login"}
         </Button>
       )}
       {isError && <p className="text-destructive">Error: {error.message}</p>}
