@@ -8,6 +8,7 @@ import { MainLayout } from "./layouts/main-layout.tsx";
 import { HomePage } from "./pages/home-page.tsx";
 import { RatedPage } from "./pages/rated-page.tsx";
 import { SearchPage } from "./pages/search-page.tsx";
+import { DetailedMediaPage } from "./pages/detailed-media-page.tsx";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearchPage />,
+      },
+      {
+        path: ":contentType/:id",
+        element: <DetailedMediaPage />,
       },
     ],
   },

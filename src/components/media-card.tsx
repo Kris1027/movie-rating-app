@@ -9,6 +9,7 @@ import { RateModal } from "./rate-modal";
 import { isMovie } from "@/lib/is-movie";
 import { Star } from "lucide-react";
 import { ratedColor } from "@/lib/rated-color";
+import { Link } from "react-router-dom";
 
 export function MediaCard({
   item,
@@ -20,11 +21,13 @@ export function MediaCard({
   return (
     <Card>
       <CardHeader className="flex flex-col items-center gap-4">
-        <img
-          src={`${IMAGE_URL}/${item.poster_path}`}
-          alt={isMovie(item) ? item.title : item.name}
-          width={300}
-        />
+        <Link to={`/${contentType}/${item.id}`}>
+          <img
+            src={`${IMAGE_URL}/${item.poster_path}`}
+            alt={isMovie(item) ? item.title : item.name}
+            width={300}
+          />
+        </Link>
         <CardTitle className="text-center">
           {isMovie(item) ? item.title : item.name}
         </CardTitle>
