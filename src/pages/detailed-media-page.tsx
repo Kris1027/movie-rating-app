@@ -1,8 +1,9 @@
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { fetchDetails } from "@/api/fetch-details";
+import { DetailedMediaCard } from "@/components/detailed-media-card";
 import { Loader } from "@/components/loader";
 import { ContentTypeProps } from "@/types/data-types";
-import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
 
 export function DetailedMediaPage() {
   const { id, contentType } = useParams();
@@ -22,9 +23,9 @@ export function DetailedMediaPage() {
     return <p>An error occurred. Please try again.</p>;
   }
 
-  console.log(data);
-
   return (
-    <main className="p-4 flex flex-col items-center min-h-[calc(100vh-8rem)]"></main>
+    <main className="p-4 flex flex-col items-center min-h-[calc(100vh-8rem)]">
+      <DetailedMediaCard data={data} />
+    </main>
   );
 }
