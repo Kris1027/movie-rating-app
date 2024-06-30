@@ -1,3 +1,5 @@
+import { ContentTypeProps, RatedContentTypeProps } from "@/types/data-types";
+import { RateModal } from "./rate-modal";
 import {
   Card,
   CardHeader,
@@ -9,6 +11,7 @@ import {
 type DetailedMediaCardProps = {
   adult: boolean;
   backdrop_path: string;
+  id: number;
   genre_ids: number[];
   original_language: string;
   original_title: string;
@@ -22,7 +25,13 @@ type DetailedMediaCardProps = {
   vote_count: number;
 };
 
-export function DetailedMediaCard({ data }: { data: DetailedMediaCardProps }) {
+export function DetailedMediaCard({
+  data,
+  contentType,
+}: {
+  data: DetailedMediaCardProps;
+  contentType: ContentTypeProps | RatedContentTypeProps;
+}) {
   return (
     <Card className="max-w-4xl mx-auto">
       <CardHeader>
@@ -62,6 +71,7 @@ export function DetailedMediaCard({ data }: { data: DetailedMediaCardProps }) {
       </CardContent>
       <CardFooter className="flex justify-between">
         <span>{data.adult ? "Adult Content" : "Family Friendly"}</span>
+        <RateModal item={data} contentType={contentType} />
         <span>{data.video ? "Video Available" : "No Video"}</span>
       </CardFooter>
     </Card>
