@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { ContentTypeProps, RatedContentTypeProps } from "@/types/data-types";
 import { RateModal } from "./rate-modal";
 import {
@@ -7,6 +8,7 @@ import {
   CardContent,
   CardFooter,
 } from "./ui/card";
+import { Button } from "./ui/button";
 
 type DetailedMediaCardProps = {
   adult: boolean;
@@ -32,15 +34,17 @@ export function DetailedMediaCard({
   data: DetailedMediaCardProps;
   contentType: ContentTypeProps | RatedContentTypeProps;
 }) {
+  const navigate = useNavigate();
+
   return (
     <Card className="max-w-4xl mx-auto">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
-          <span>{data.title}</span>
-          <span className="text-sm font-normal">
-            ({new Date(data.release_date).getFullYear()})
-          </span>
+          {data.title}
         </CardTitle>
+        <span className="text-sm font-normal">
+          ({new Date(data.release_date).getFullYear()})
+        </span>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col md:flex-row gap-6">
@@ -73,6 +77,7 @@ export function DetailedMediaCard({
         <span>{data.adult ? "Adult Content" : "Family Friendly"}</span>
         <RateModal item={data} contentType={contentType} />
         <span>{data.video ? "Video Available" : "No Video"}</span>
+        <Button onClick={() => navigate(-1)}>Back</Button>
       </CardFooter>
     </Card>
   );

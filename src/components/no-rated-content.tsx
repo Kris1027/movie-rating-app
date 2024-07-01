@@ -15,9 +15,9 @@ export function NoRatedContent({
     <div className="flex flex-col justify-center items-center bg-gradient-to-b from-background to-muted p-4">
       <div className="text-center p-8 rounded-lg shadow-lg bg-card max-w-md">
         <Star color="#009ffd" className="w-16 h-16 mx-auto mb-4" />
-        <h2 className="text-3xl font-bold mb-4 text-foreground">
+        <p className="text-3xl font-bold mb-4 text-foreground">
           No Rated {CONTENT_TYPE[contentType]}
-        </h2>
+        </p>
         <p className="text-xl mb-6 text-muted-foreground">
           You haven't rated any {CONTENT_TYPE[contentType]} yet. Start watching
           and rating {CONTENT_TYPE[contentType]} to see them here!
