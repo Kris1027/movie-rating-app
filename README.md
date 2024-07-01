@@ -37,7 +37,7 @@
 - [x] search function
 - [x] fix loading function and error handling
 - [x] build page with info for not logged users
-- [ ] build page where is no rated media
-- [ ] api for detailed media
+- [x] build page where is no rated media
+- [x] api for detailed media
 - [ ] detailed media page and connect with media card and searching
 - [ ] responsive for multi devices
