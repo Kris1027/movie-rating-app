@@ -9,12 +9,21 @@ export enum RatedContentTypeProps {
 }
 
 export type MovieProps = {
+  adult: boolean;
+  backdrop_path: string;
   id: number;
-  title: string;
+  genre_ids: number[];
+  original_language: string;
+  original_title: string;
   overview: string;
+  popularity: number;
   poster_path: string;
-  rating?: number;
+  release_date: string;
+  title: string;
+  video: boolean;
   vote_average: number;
+  vote_count: number;
+  rating: number;
 };
 
 export type TvProps = {
@@ -24,6 +33,17 @@ export type TvProps = {
   poster_path: string;
   rating?: number;
   vote_average: number;
+  first_air_date: string;
+  vote_count: number;
+  genre_ids: number[];
+  original_language: string;
+  original_name: string;
+  origin_country: string[];
+  backdrop_path: string;
+  popularity: number;
+  media_type: string;
+  video: boolean;
+  adult: boolean;
 };
 
 export type ItemProps = MovieProps | TvProps;

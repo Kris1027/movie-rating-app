@@ -1,5 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { ContentTypeProps, RatedContentTypeProps } from "@/types/data-types";
+import {
+  ContentTypeProps,
+  MovieProps,
+  RatedContentTypeProps,
+  TvProps,
+} from "@/types/data-types";
 import { RateModal } from "./rate-modal";
 import {
   Card,
@@ -9,29 +14,13 @@ import {
   CardFooter,
 } from "./ui/card";
 import { Button } from "./ui/button";
-
-type DetailedMediaCardProps = {
-  adult: boolean;
-  backdrop_path: string;
-  id: number;
-  genre_ids: number[];
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-};
+import { isMovie } from "@/lib/is-movie";
 
 export function DetailedMediaCard({
   data,
   contentType,
 }: {
-  data: DetailedMediaCardProps;
+  data: MovieProps | TvProps;
   contentType: ContentTypeProps | RatedContentTypeProps;
 }) {
   const navigate = useNavigate();
@@ -40,17 +29,21 @@ export function DetailedMediaCard({
     <Card className="max-w-4xl mx-auto">
       <CardHeader>
         <CardTitle className="flex items-center justify-between">
-          {data.title}
+          {isMovie(data) ? data.title : data.name}
         </CardTitle>
         <span className="text-sm font-normal">
-          ({new Date(data.release_date).getFullYear()})
+          (
+          {new Date(
+            isMovie(data) ? data.release_date : data.first_air_date
+          ).getFullYear()}
+          )
         </span>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col md:flex-row gap-6">
           <img
             src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-            alt={data.title}
+            alt={isMovie(data) ? data.title : data.name}
             className="rounded-lg object-cover w-full md:w-[200px] h-auto"
           />
           <div>
