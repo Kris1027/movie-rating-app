@@ -25,7 +25,6 @@ export type MovieProps = {
   release_date: string;
   vote_average: number;
   vote_count: number;
-  video: boolean;
   production_companies: {
     id: number;
     logo_path: string;
@@ -49,7 +48,6 @@ export type TvProps = {
   first_air_date: string;
   vote_average: number;
   vote_count: number;
-  video: boolean;
   production_companies: {
     id: number;
     logo_path: string;
