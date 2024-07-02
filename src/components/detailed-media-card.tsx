@@ -26,22 +26,15 @@ export function DetailedMediaCard({
 }) {
   const navigate = useNavigate();
 
+  console.log(data);
+
   return (
-    <Card className="max-w-4xl mx-auto bg-white/10 backdrop-blur-md text-white shadow-xl">
-      {data.backdrop_path && (
-        <div
-          className="absolute inset-0 -z-10 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`,
-            filter: "blur(10px)",
-          }}
-        />
-      )}
+    <Card className="bg-white/10 backdrop-blur-md text-white shadow-xl">
       <CardHeader>
-        <CardTitle className="flex items-center justify-between text-3xl">
+        <CardTitle className="flex items-center justify-between">
           {isMovie(data) ? data.title : data.name}
         </CardTitle>
-        <span className="text-lg">
+        <span className="text-sm font-normal">
           (
           {new Date(
             isMovie(data) ? data.release_date : data.first_air_date
@@ -54,26 +47,26 @@ export function DetailedMediaCard({
           <img
             src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
             alt={isMovie(data) ? data.title : data.name}
-            className="rounded-lg object-cover w-full md:w-[200px] h-auto shadow-lg"
+            className="rounded-lg object-cover w-full md:w-[200px] h-auto"
           />
           <div>
-            <p className="mb-4 text-lg">{data.overview}</p>
-            <div className="grid grid-cols-2 gap-4 text-md">
+            <p className="mb-4">{data.overview}</p>
+            <div className="grid grid-cols-2 gap-2 text-sm">
               <p className="flex items-center gap-2">
-                <Globe size={20} />
+                <Globe size={16} />
                 <strong>Original Language:</strong>{" "}
                 {data.original_language.toUpperCase()}
               </p>
               <p className="flex items-center gap-2">
-                <TrendingUp size={20} />
+                <TrendingUp size={16} />
                 <strong>Popularity:</strong> {data.popularity.toFixed(2)}
               </p>
               <p className="flex items-center gap-2">
-                <Star size={20} />
+                <Star size={16} />
                 <strong>Vote Average:</strong> {data.vote_average.toFixed(1)}/10
               </p>
               <p className="flex items-center gap-2">
-                <Users size={20} />
+                <Users size={16} />
                 <strong>Vote Count:</strong> {data.vote_count}
               </p>
             </div>
@@ -84,9 +77,7 @@ export function DetailedMediaCard({
         <span>{data.adult ? "Adult Content" : "Family Friendly"}</span>
         <RateModal item={data} contentType={contentType} />
         <span>{data.video ? "Video Available" : "No Video"}</span>
-        <Button onClick={() => navigate(-1)} variant="secondary">
-          Back
-        </Button>
+        <Button onClick={() => navigate(-1)}>Back</Button>
       </CardFooter>
     </Card>
   );

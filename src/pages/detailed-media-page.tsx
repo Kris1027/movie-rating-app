@@ -28,8 +28,19 @@ export function DetailedMediaPage() {
   const convertedContentType = convertToContentTypeProps(contentType);
 
   return (
-    <div className="flex-grow overflow-y-auto p-4 min-h-[calc(100vh-8rem)]">
-      <DetailedMediaCard data={data} contentType={convertedContentType} />
+    <div className="relative p-4 flex flex-col items-center justify-center min-h-[calc(100vh-8rem)] overflow-hidden">
+      {data.backdrop_path && (
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/original${data.backdrop_path})`,
+          }}
+        />
+      )}
+      <div className="absolute inset-0 bg-black bg-opacity-50" />
+      <div className="relative z-10 w-full max-w-4xl flex justify-center">
+        <DetailedMediaCard data={data} contentType={convertedContentType} />
+      </div>
     </div>
   );
 }
