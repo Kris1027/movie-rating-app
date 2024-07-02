@@ -31,6 +31,7 @@ export type MovieProps = {
     logo_path: string;
     name: string;
   }[];
+  runtime: number;
 };
 
 export type TvProps = {
@@ -53,6 +54,7 @@ export type TvProps = {
     logo_path: string;
     name: string;
   }[];
+  runtime: number;
 };
 
 export type ItemProps = MovieProps | TvProps;
