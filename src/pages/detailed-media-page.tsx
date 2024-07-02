@@ -28,8 +28,8 @@ export function DetailedMediaPage() {
   const convertedContentType = convertToContentTypeProps(contentType);
 
   return (
-    <main className="p-4 flex flex-col items-center min-h-[calc(100vh-8rem)]">
+    <div className="flex-grow overflow-y-auto p-4 min-h-[calc(100vh-8rem)]">
       <DetailedMediaCard data={data} contentType={convertedContentType} />
-    </main>
+    </div>
   );
 }

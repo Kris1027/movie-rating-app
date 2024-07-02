@@ -12,7 +12,6 @@ export type MovieProps = {
   adult: boolean;
   backdrop_path: string;
   id: number;
-  genre_ids: number[];
   original_language: string;
   original_title: string;
   overview: string;
@@ -35,7 +34,6 @@ export type TvProps = {
   vote_average: number;
   first_air_date: string;
   vote_count: number;
-  genre_ids: number[];
   original_language: string;
   original_name: string;
   origin_country: string[];
