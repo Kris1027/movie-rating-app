@@ -16,7 +16,8 @@ import {
 import { Button } from "./ui/button";
 import { isMovie } from "@/lib/is-movie";
 import { convertRuntime } from "@/lib/convert-runtime";
-import { Globe, TrendingUp, Star, Users, Timer } from "lucide-react";
+import { Globe, TrendingUp, Star, Users, Timer, HandCoins } from "lucide-react";
+import { convertBudget } from "@/lib/convert-budget";
 
 export function DetailedMediaCard({
   data,
@@ -77,6 +78,12 @@ export function DetailedMediaCard({
                 <p className="flex items-center gap-2">
                   <Timer size={16} />
                   <strong>Runtime:</strong> {convertRuntime(data.runtime)}
+                </p>
+              )}
+              {isMovie(data) && (
+                <p className="flex items-center gap-2">
+                  <HandCoins size={16} />
+                  <strong>Budget:</strong> {convertBudget(data.budget)}
                 </p>
               )}
             </div>

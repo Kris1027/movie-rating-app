@@ -32,6 +32,7 @@ export type MovieProps = {
     name: string;
   }[];
   runtime: number;
+  budget: number;
 };
 
 export type TvProps = {
