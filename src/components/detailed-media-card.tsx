@@ -73,6 +73,22 @@ export function DetailedMediaCard({
                 <strong>Vote Count:</strong> {data.vote_count}
               </p>
             </div>
+            <div className="mt-4">
+              <strong>Production Companies:</strong>
+              <div className="flex flex-wrap gap-4 mt-2">
+                {data.production_companies.map((company) => (
+                  <div key={company.id} className="flex items-center">
+                    {company.logo_path && (
+                      <img
+                        src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
+                        alt={company.name}
+                        className="h-14 object-contain"
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </CardContent>
