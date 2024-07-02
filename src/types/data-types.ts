@@ -55,7 +55,12 @@ export type TvProps = {
     logo_path: string;
     name: string;
   }[];
-  runtime: number;
+  seasons: {
+    id: number;
+    name: string;
+    episode_count: number;
+    air_date: string;
+  }[];
 };
 
 export type ItemProps = MovieProps | TvProps;

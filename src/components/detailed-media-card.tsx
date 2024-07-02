@@ -86,6 +86,26 @@ export function DetailedMediaCard({
                   <strong>Budget:</strong> {convertBudget(data.budget)}
                 </p>
               )}
+              {!isMovie(data) && (
+                <div className="mt-4">
+                  <strong>Seasons:</strong>
+                  <div
+                    className={`flex flex-col gap-2 mt-2 overflow-y-auto ${
+                      data.seasons.length > 3 ? "h-32" : ""
+                    }`}
+                  >
+                    {data.seasons.map((season) => (
+                      <div key={season.id} className="flex flex-col">
+                        <strong>{season.name}</strong>
+                        <p className="text-sm">
+                          {season.episode_count} episodes | Air Date:{" "}
+                          {new Date(season.air_date).toLocaleDateString()}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
             <div className="mt-4">
               <strong>Production Companies:</strong>
