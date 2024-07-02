@@ -50,6 +50,9 @@ export function DetailedMediaCard({
             className="rounded-lg object-cover w-full md:w-[200px] h-auto"
           />
           <div>
+            <p className="flex items-center gap-2 col-span-2 font-bold mb-4">
+              {data.genres.map((genre) => genre.name).join(", ")}
+            </p>
             <p className="mb-4">{data.overview}</p>
             <div className="grid grid-cols-2 gap-2 text-sm">
               <p className="flex items-center gap-2">
