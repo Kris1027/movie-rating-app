@@ -16,8 +16,8 @@ import {
 import { Button } from "./ui/button";
 import { isMovie } from "@/lib/is-movie";
 import { convertRuntime } from "@/lib/convert-runtime";
-import { Globe, TrendingUp, Star, Users, Timer, HandCoins } from "lucide-react";
 import { convertBudget } from "@/lib/convert-budget";
+import { Globe, TrendingUp, Star, Users, Timer, HandCoins } from "lucide-react";
 
 export function DetailedMediaCard({
   data,
@@ -27,28 +27,27 @@ export function DetailedMediaCard({
   contentType: ContentTypeProps | RatedContentTypeProps;
 }) {
   const navigate = useNavigate();
-
-  console.log(data);
+  const isMovieType = isMovie(data);
 
   return (
     <Card className="bg-white/10 backdrop-blur-md text-white shadow-xl p-4 w-full max-w-5xl mx-auto">
       <CardHeader>
         <CardTitle className="flex items-center justify-between text-2xl">
-          {isMovie(data) ? data.title : data.name}
+          {isMovieType ? data.title : data.name}
+          <span className="text-lg font-normal">
+            (
+            {new Date(
+              isMovieType ? data.release_date : data.first_air_date
+            ).getFullYear()}
+            )
+          </span>
         </CardTitle>
-        <span className="text-lg font-normal">
-          (
-          {new Date(
-            isMovie(data) ? data.release_date : data.first_air_date
-          ).getFullYear()}
-          )
-        </span>
       </CardHeader>
       <CardContent className="flex flex-col lg:flex-row gap-6">
-        <div className="lg:w-1/3">
+        <div className="lg:w-1/3 aspect-ratio-[2/3] max-h-[600px]">
           <img
             src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
-            alt={isMovie(data) ? data.title : data.name}
+            alt={isMovieType ? data.title : data.name}
             className="rounded-lg object-cover w-full h-full"
           />
         </div>
@@ -57,7 +56,7 @@ export function DetailedMediaCard({
             {data.genres.map((genre) => genre.name).join(", ")}
           </p>
           <p className="mb-4 text-lg">{data.overview}</p>
-          <div className="grid grid-cols-2 gap-2 text-md">
+          <div className="grid grid-cols-2 gap-2 text-sm">
             <p className="flex items-center gap-2">
               <Globe size={16} />
               <strong>Original Language:</strong>{" "}
@@ -75,30 +74,30 @@ export function DetailedMediaCard({
               <Users size={16} />
               <strong>Vote Count:</strong> {data.vote_count}
             </p>
-            {isMovie(data) && (
-              <p className="flex items-center gap-2">
-                <Timer size={16} />
-                <strong>Runtime:</strong> {convertRuntime(data.runtime)}
-              </p>
+            {isMovieType && (
+              <>
+                <p className="flex items-center gap-2">
+                  <Timer size={16} />
+                  <strong>Runtime:</strong> {convertRuntime(data.runtime)}
+                </p>
+                <p className="flex items-center gap-2">
+                  <HandCoins size={16} />
+                  <strong>Budget:</strong> {convertBudget(data.budget)}
+                </p>
+              </>
             )}
-            {isMovie(data) && (
-              <p className="flex items-center gap-2">
-                <HandCoins size={16} />
-                <strong>Budget:</strong> {convertBudget(data.budget)}
-              </p>
-            )}
-            {!isMovie(data) && (
+            {!isMovieType && (
               <div className="mt-4 col-span-2">
                 <strong>Seasons:</strong>
                 <div
                   className={`flex flex-col gap-2 mt-2 overflow-y-auto ${
-                    data.seasons.length > 3 ? "h-32" : ""
+                    data.seasons.length > 3 ? "max-h-64" : ""
                   }`}
                 >
                   {data.seasons.map((season) => (
                     <div key={season.id} className="flex flex-col">
                       <strong>{season.name}</strong>
-                      <p className="text-md">
+                      <p className="text-sm">
                         {season.episode_count} episodes | Air Date:{" "}
                         {new Date(season.air_date).toLocaleDateString()}
                       </p>
@@ -111,17 +110,17 @@ export function DetailedMediaCard({
           <div className="mt-4">
             <strong>Production Companies:</strong>
             <div className="flex flex-wrap gap-4 mt-2">
-              {data.production_companies.map((company) => (
-                <div key={company.id} className="flex items-center">
-                  {company.logo_path && (
+              {data.production_companies.map(
+                (company) =>
+                  company.logo_path && (
                     <img
+                      key={company.id}
                       src={`https://image.tmdb.org/t/p/w200${company.logo_path}`}
                       alt={company.name}
                       className="h-14 object-contain"
                     />
-                  )}
-                </div>
-              ))}
+                  )
+              )}
             </div>
           </div>
         </div>
