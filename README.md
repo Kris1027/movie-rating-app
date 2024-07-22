@@ -4,8 +4,37 @@
 
 ## Challenges Faced During the Movie Rating App
 
-- Deep inside git and github during project
-- first time use ui library
+### 1. Deep Integration with Git and GitHub
+
+- Mastering advanced Git workflows for efficient version control.
+- Utilizing GitHub features for collaboration and project management.
+
+### 2. Implementation of a UI Library
+
+- Learning and adapting to the chosen UI library's components and conventions.
+- Customizing UI elements to match the app's design requirements.
+
+### 3. API Integration and Data Management
+
+- Connecting with external movie and series APIs.
+- Implementing efficient data fetching for movies and series.
+- Handling API rate limits and optimizing requests.
+
+### 4. Routing and Navigation
+
+- Setting up React Router for seamless navigation between pages.
+- Implementing dynamic routing for detailed content pages with unique URLs.
+
+### 5. User Authentication and Session Management
+
+- Creating a guest login system with session handling.
+- Developing a rating page to display user-rated movies and series.
+
+### 6. Biggest Challenge: API Integration and Data Management
+
+- Efficiently fetching and managing large sets of movie and series data.
+- Implementing a robust caching strategy to minimize API calls and improve app responsiveness.
+- Handling complex data relationships between movies, series, and user ratings.
 
 ## Technologies:
 
