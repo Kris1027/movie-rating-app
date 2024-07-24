@@ -6,6 +6,7 @@ import { MediaList } from '@/components/media-list';
 import { Button } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
 import { Input } from '@/components/ui/input';
+import { MainWrapper } from '@/components/ui/main-wrapper';
 import { ContentTypeProps, MovieProps } from '@/types/data-types';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
@@ -78,7 +79,7 @@ export function MoviesPage() {
    };
 
    return (
-      <main className='p-6 flex flex-col items-center min-h-[calc(100vh-8rem)] max-w-7xl mx-auto'>
+      <MainWrapper>
          <Heading>Movies</Heading>
          <form
             className='w-full max-w-md flex gap-4 my-8'
@@ -101,6 +102,6 @@ export function MoviesPage() {
          </form>
 
          {renderContent()}
-      </main>
+      </MainWrapper>
    );
 }
