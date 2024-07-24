@@ -31,8 +31,8 @@ export function TvShowsPage() {
       isLoading,
       isError: isDataError,
    } = useQuery({
-      queryKey: [ContentTypeProps.movie, 1],
-      queryFn: () => fetchData(ContentTypeProps.movie, 1),
+      queryKey: [ContentTypeProps.tv, 1],
+      queryFn: () => fetchData(ContentTypeProps.tv, 1),
    });
 
    const handleSubmit = (event: React.FormEvent) => {
@@ -42,15 +42,51 @@ export function TvShowsPage() {
       }
    };
 
+   const renderContent = () => {
+      if (isPending || isLoading) return <Loader />;
+      if (isSearchError || isDataError)
+         return (
+            <p className='text-red-500'>An error occurred. Please try again.</p>
+         );
+      if (searchResults) {
+         return (
+            <div className='flex flex-col items-center w-full'>
+               <h2 className='text-2xl font-bold mb-6'>
+                  {searchResults.length === 1
+                     ? '1 result'
+                     : `${searchResults.length} results`}
+               </h2>
+               <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full'>
+                  {searchResults.map((item: TvProps) => (
+                     <MediaCard
+                        key={item.id}
+                        item={item}
+                        contentType={ContentTypeProps.tv}
+                     />
+                  ))}
+               </div>
+            </div>
+         );
+      }
+      if (data && data.results) {
+         return <MediaList data={data} contentType={ContentTypeProps.tv} />;
+      }
+      return null;
+   };
+
    return (
-      <main className='p-4 flex flex-col items-center min-h-[calc(100vh-8rem)]'>
-         <form className='text-black flex gap-4 pb-4' onSubmit={handleSubmit}>
+      <main className='p-6 flex flex-col items-center min-h-[calc(100vh-8rem)] max-w-7xl mx-auto'>
+         <h1 className='text-3xl font-bold mb-8'>TV Shows</h1>
+         <form
+            className='w-full max-w-md flex gap-4 mb-8'
+            onSubmit={handleSubmit}
+         >
             <Input
-               className='text-primary'
+               className='flex-grow'
                type='search'
                onChange={(e) => setQuery(e.target.value)}
                value={query}
-               placeholder='Search for a tv show...'
+               placeholder='Search for a TV show...'
             />
             <Button
                type='submit'
@@ -61,30 +97,7 @@ export function TvShowsPage() {
             </Button>
          </form>
 
-         {isPending || isLoading ? (
-            <Loader />
-         ) : isSearchError || isDataError ? (
-            <p>An error occurred. Please try again.</p>
-         ) : searchResults ? (
-            <div className='flex flex-col items-center'>
-               <h2 className='text-xl font-bold mb-4'>
-                  {searchResults.length === 1
-                     ? '1 result'
-                     : `${searchResults.length} results`}
-               </h2>
-               <div className='grid grid-cols-4 gap-4'>
-                  {searchResults.map((item: TvProps) => (
-                     <MediaCard
-                        key={item.id}
-                        item={item}
-                        contentType={ContentTypeProps.tv}
-                     />
-                  ))}
-               </div>
-            </div>
-         ) : data && data.results ? (
-            <MediaList data={data} contentType={ContentTypeProps.movie} />
-         ) : null}
+         {renderContent()}
       </main>
    );
 }
