@@ -1,29 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "../ui/navigation-menu";
+   NavigationMenu,
+   NavigationMenuItem,
+   NavigationMenuList,
+   navigationMenuTriggerStyle,
+} from '../ui/navigation-menu';
 
 const pages = [
-  { title: "Home", href: "/" },
-  { title: "Rated", href: "/rated" },
-  { title: "Search", href: "/search" },
+   { title: 'Home', href: '/' },
+   { title: 'Rated', href: '/rated' },
+   { title: 'Movies', href: '/movies' },
 ];
 
 export function Menu() {
-  return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        {pages.map((page) => (
-          <NavigationMenuItem key={page.href}>
-            <Link className={navigationMenuTriggerStyle()} to={page.href}>
-              {page.title}
-            </Link>
-          </NavigationMenuItem>
-        ))}
-      </NavigationMenuList>
-    </NavigationMenu>
-  );
+   return (
+      <NavigationMenu>
+         <NavigationMenuList>
+            {pages.map((page) => (
+               <NavigationMenuItem key={page.href}>
+                  <Link className={navigationMenuTriggerStyle()} to={page.href}>
+                     {page.title}
+                  </Link>
+               </NavigationMenuItem>
+            ))}
+         </NavigationMenuList>
+      </NavigationMenu>
+   );
 }

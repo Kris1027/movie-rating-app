@@ -1,24 +1,24 @@
 import {
-  ContentTypeProps,
-  ItemProps,
-  RatedContentTypeProps,
-} from "@/types/data-types";
-import { MediaCard } from "./media-card";
+   ContentTypeProps,
+   ItemProps,
+   RatedContentTypeProps,
+} from '@/types/data-types';
+import { MediaCard } from './media-card';
 
 export function MediaList({
-  data,
-  contentType,
+   data,
+   contentType,
 }: {
-  data: {
-    results: ItemProps[];
-  };
-  contentType: ContentTypeProps | RatedContentTypeProps;
+   data: {
+      results: ItemProps[];
+   };
+   contentType: ContentTypeProps | RatedContentTypeProps;
 }) {
-  return (
-    <div className="grid grid-cols-4 gap-4">
-      {data.results.map((item: ItemProps) => (
-        <MediaCard key={item.id} item={item} contentType={contentType} />
-      ))}
-    </div>
-  );
+   return (
+      <div className='grid grid-cols-4 gap-4'>
+         {data.results.map((item: ItemProps) => (
+            <MediaCard key={item.id} item={item} contentType={contentType} />
+         ))}
+      </div>
+   );
 }
