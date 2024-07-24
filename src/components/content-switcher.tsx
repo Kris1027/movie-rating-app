@@ -1,7 +1,7 @@
 import { ContentTypeProps } from '@/types/data-types';
 import { Button } from './ui/button';
 import { Heading } from './ui/heading';
-import { Paragraph } from './paragraph';
+import { Paragraph } from './ui/paragraph';
 
 export function ContentSwitcher({
    contentType = ContentTypeProps.movie,

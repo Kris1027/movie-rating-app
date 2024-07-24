@@ -2,7 +2,7 @@ import { RatedContentTypeProps } from '@/types/data-types';
 import { Button } from './ui/button';
 import { Heading } from './ui/heading';
 import { NoRatedContent } from './no-rated-content';
-import { Paragraph } from './paragraph';
+import { Paragraph } from './ui/paragraph';
 
 export function RatedContentSwitcher({
    handleToggle,

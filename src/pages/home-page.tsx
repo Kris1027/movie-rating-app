@@ -7,6 +7,7 @@ import { MediaList } from '@/components/media-list';
 import { ContentSwitcher } from '@/components/content-switcher';
 import { PaginationComponent } from '@/components/pagination-component';
 import { Loader } from '@/components/loader';
+import { Heading } from '@/components/ui/heading';
 
 export function HomePage() {
    const [contentType, setContentType] = useState<ContentTypeProps>(
@@ -47,9 +48,9 @@ export function HomePage() {
 
    return (
       <main className='p-6 flex flex-col items-center min-h-[calc(100vh-8rem)] max-w-7xl mx-auto'>
-         <h1 className='text-3xl font-bold mb-8'>
+         <Heading>
             {contentType === ContentTypeProps.movie ? 'Movies' : 'TV Shows'}
-         </h1>
+         </Heading>
          <ContentSwitcher
             contentType={contentType}
             handleToggle={handleToggle}
