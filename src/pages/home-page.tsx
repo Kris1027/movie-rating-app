@@ -1,41 +1,60 @@
-import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
-import { fetchData } from "@/api/fetch-data";
-import { ContentTypeProps } from "@/types/data-types";
-import { MediaList } from "@/components/media-list";
-import { ContentSwitcher } from "@/components/content-switcher";
-import { PaginationComponent } from "@/components/pagination-component";
-import { Loader } from "@/components/loader";
+import { fetchData } from '@/api/fetch-data';
+import { ContentTypeProps } from '@/types/data-types';
+import { MediaList } from '@/components/media-list';
+import { ContentSwitcher } from '@/components/content-switcher';
+import { PaginationComponent } from '@/components/pagination-component';
+import { Loader } from '@/components/loader';
 
 export function HomePage() {
-  const [contentType, setContentType] = useState<ContentTypeProps>(
-    ContentTypeProps.movie
-  );
-  const [page, setPage] = useState(1);
+   const [contentType, setContentType] = useState<ContentTypeProps>(
+      ContentTypeProps.movie
+   );
+   const [page, setPage] = useState(1);
 
-  const { data, isLoading, isError } = useQuery({
-    queryKey: [contentType, page],
-    queryFn: () => fetchData(contentType, page),
-  });
+   const { data, isLoading, isError } = useQuery({
+      queryKey: [contentType, page],
+      queryFn: () => fetchData(contentType, page),
+   });
 
-  const handleToggle = (contentType: ContentTypeProps) => {
-    setContentType(contentType);
-    setPage(1);
-  };
+   const handleToggle = (newContentType: ContentTypeProps) => {
+      setContentType(newContentType);
+      setPage(1);
+   };
 
-  if (isLoading) return <Loader />;
-  if (!data || data.length === 0) {
-    return <p>You haven't rated any {contentType} yet.</p>;
-  } else if (isError) {
-    return <p>An error occurred. Please try again.</p>;
-  }
+   const renderContent = () => {
+      if (isLoading) return <Loader />;
+      if (isError)
+         return (
+            <p className='text-red-500'>An error occurred. Please try again.</p>
+         );
+      if (!data || !data.results || data.results.length === 0) {
+         return (
+            <p className='text-center text-gray-500'>
+               No {contentType}s available at the moment.
+            </p>
+         );
+      }
+      return (
+         <>
+            <MediaList data={data} contentType={contentType} />
+            <PaginationComponent page={page} setPage={setPage} data={data} />
+         </>
+      );
+   };
 
-  return (
-    <main className="p-4 flex flex-col items-center min-h-[calc(100vh-8rem)]">
-      <ContentSwitcher contentType={contentType} handleToggle={handleToggle} />
-      <MediaList data={data} contentType={contentType} />
-      <PaginationComponent page={page} setPage={setPage} data={data} />
-    </main>
-  );
+   return (
+      <main className='p-6 flex flex-col items-center min-h-[calc(100vh-8rem)] max-w-7xl mx-auto'>
+         <h1 className='text-3xl font-bold mb-8'>
+            {contentType === ContentTypeProps.movie ? 'Movies' : 'TV Shows'}
+         </h1>
+         <ContentSwitcher
+            contentType={contentType}
+            handleToggle={handleToggle}
+         />
+         {renderContent()}
+      </main>
+   );
 }
