@@ -7,8 +7,9 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { MainLayout } from './layouts/main-layout.tsx';
 import { HomePage } from './pages/home-page.tsx';
 import { RatedPage } from './pages/rated-page.tsx';
-import { SearchPage } from './pages/movies-page.tsx';
+import { MoviesPage } from './pages/movies-page.tsx';
 import { DetailedMediaPage } from './pages/detailed-media-page.tsx';
+import { TvShowsPage } from './pages/tvshows-page.tsx';
 
 const queryClient = new QueryClient();
 
@@ -28,7 +29,11 @@ const router = createBrowserRouter([
          },
          {
             path: '/movies',
-            element: <SearchPage />,
+            element: <MoviesPage />,
+         },
+         {
+            path: '/tv-shows',
+            element: <TvShowsPage />,
          },
          {
             path: ':contentType/:id',

@@ -7,12 +7,12 @@ export async function searchMovies(query: string) {
       );
 
       if (!res.ok) {
-         throw new Error('Failed to search data');
+         throw new Error('Failed to search movies data');
       }
 
       return await res.json();
    } catch (error) {
-      console.error('Error searching data:', error);
+      console.error('Error searching movies data:', error);
       throw error;
    }
 }

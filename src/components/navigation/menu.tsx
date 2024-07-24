@@ -10,6 +10,7 @@ const pages = [
    { title: 'Home', href: '/' },
    { title: 'Rated', href: '/rated' },
    { title: 'Movies', href: '/movies' },
+   { title: 'TV Shows', href: '/tv-shows' },
 ];
 
 export function Menu() {

@@ -1,27 +1,25 @@
 import { fetchData } from '@/api/fetch-data';
-import { searchMovies } from '@/api/search-movies';
+import { searchTvShows } from '@/api/search-tv';
 import { Loader } from '@/components/loader';
 import { MediaCard } from '@/components/media-card';
 import { MediaList } from '@/components/media-list';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ContentTypeProps, MovieProps } from '@/types/data-types';
+import { ContentTypeProps, TvProps } from '@/types/data-types';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
-export function MoviesPage() {
+export function TvShowsPage() {
    const [query, setQuery] = useState('');
-   const [searchResults, setSearchResults] = useState<MovieProps[] | null>(
-      null
-   );
+   const [searchResults, setSearchResults] = useState<TvProps[] | null>(null);
 
    const {
       mutate,
       isPending,
       isError: isSearchError,
    } = useMutation({
-      mutationFn: () => searchMovies(query),
-      mutationKey: ['movie search', query],
+      mutationFn: () => searchTvShows(query),
+      mutationKey: ['tv search', query],
       onSuccess: (data) => {
          setSearchResults(data.results);
          setQuery('');
@@ -52,7 +50,7 @@ export function MoviesPage() {
                type='search'
                onChange={(e) => setQuery(e.target.value)}
                value={query}
-               placeholder='Search for a movie...'
+               placeholder='Search for a tv show...'
             />
             <Button
                type='submit'
@@ -75,11 +73,11 @@ export function MoviesPage() {
                      : `${searchResults.length} results`}
                </h2>
                <div className='grid grid-cols-4 gap-4'>
-                  {searchResults.map((item: MovieProps) => (
+                  {searchResults.map((item: TvProps) => (
                      <MediaCard
                         key={item.id}
                         item={item}
-                        contentType={ContentTypeProps.movie}
+                        contentType={ContentTypeProps.tv}
                      />
                   ))}
                </div>
