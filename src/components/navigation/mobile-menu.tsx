@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { NaviLinksProps } from './navigation-bar';
 
 export default function MobileMenu({
@@ -15,7 +16,7 @@ export default function MobileMenu({
                key={link.href}
                onClick={() => setToggled((prevToggle) => !prevToggle)}
             >
-               <a href={link.href}>{link.title}</a>
+               <Link to={link.href}>{link.title}</Link>
             </li>
          ))}
       </ul>
