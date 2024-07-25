@@ -5,6 +5,8 @@ import DesktopMenu from './desktop-menu';
 import Burger from './burger';
 import { ModeToggle } from './mode-toggle';
 import { Login } from './login';
+import { Logo } from './logo';
+import clsx from 'clsx';
 
 export type NaviLinksProps = {
    links: { href: string; title: string }[];
@@ -24,11 +26,17 @@ export default function NavigationBar() {
    return (
       <nav className='flex justify-between items-center w-full py-5 px-10 max-w-7xl mx-auto'>
          {matches && <DesktopMenu links={links} />}
-         <div className='flex gap-4 z-50'>
+         <div
+            className={clsx(
+               'flex gap-2 z-50 items-center justify-end',
+               !matches && 'w-full'
+            )}
+         >
+            <Logo />
             <ModeToggle />
             <Login />
+            {!matches && <Burger setToggled={setToggled} toggled={toggled} />}
          </div>
-         {!matches && <Burger setToggled={setToggled} toggled={toggled} />}
          {toggled && !matches && (
             <MobileMenu links={links} setToggled={setToggled} />
          )}

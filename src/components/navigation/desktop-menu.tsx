@@ -6,7 +6,7 @@ export default function DesktopMenu({
    links: NaviLinksProps['links'];
 }) {
    return (
-      <ul className='flex text-2xl gap-16'>
+      <ul className='flex text-lg gap-8'>
          {links.map((link) => (
             <li className='font-bold' key={link.href}>
                <a href={link.href}>{link.title}</a>
