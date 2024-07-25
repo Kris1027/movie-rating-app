@@ -2,7 +2,7 @@ export function Footer() {
    const date = new Date().getFullYear();
 
    return (
-      <footer className='p-4 text-center text-primary bg-primary-foreground max-w-7xl mx-auto'>
+      <footer className='p-4 text-center text-primary bg-muted max-w-7xl mx-auto'>
          <p>
             ©{date} All rights reserved. Designed & crafted with love by{' '}
             <a
