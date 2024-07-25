@@ -24,11 +24,11 @@ export default function NavigationBar() {
    ];
 
    return (
-      <nav className='flex justify-between items-center w-full py-5 px-10 max-w-7xl mx-auto'>
+      <nav className='flex justify-between items-center w-full py-5 px-4 md:px-10 max-w-7xl mx-auto'>
          {matches && <DesktopMenu links={links} />}
          <div
             className={clsx(
-               'flex gap-2 z-50 items-center justify-end',
+               'flex gap-2 items-center justify-end',
                !matches && 'w-full'
             )}
          >
