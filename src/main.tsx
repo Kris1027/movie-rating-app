@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import { RouterProvider, createHashRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import './index.css';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -13,7 +13,7 @@ import { TvShowsPage } from './pages/tvshows-page.tsx';
 
 const queryClient = new QueryClient();
 
-const router = createHashRouter([
+const router = createBrowserRouter([
    {
       path: '/',
       element: <MainLayout />,
