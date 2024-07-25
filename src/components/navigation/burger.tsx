@@ -11,13 +11,15 @@ export default function Burger({
       <>
          {!toggled ? (
             <Menu
-               className='w-5 h-5 cursor-pointer z-50'
+               className='cursor-pointer z-50'
                onClick={() => setToggled((prevToggle) => !prevToggle)}
+               size={32}
             />
          ) : (
             <X
-               className='w-5 h-5 cursor-pointer z-50'
+               className='cursor-pointer z-50'
                onClick={() => setToggled((prevToggle) => !prevToggle)}
+               size={32}
             />
          )}
       </>
