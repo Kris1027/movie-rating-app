@@ -20,22 +20,20 @@ export function NoRatedContent({
 
    return (
       <div className='flex flex-col justify-center items-center bg-gradient-to-b from-background to-muted p-4'>
-         <div className='text-center p-8 rounded-lg shadow-lg bg-card max-w-md'>
-            <Star color='#009ffd' className='w-16 h-16 mx-auto mb-4' />
-            <Heading>No Rated {CONTENT_TYPE[contentType]}</Heading>
-            <Paragraph>
-               You haven't rated any {CONTENT_TYPE[contentType]} yet. Start
-               watching and rating {CONTENT_TYPE[contentType]} to see them here!
-            </Paragraph>
-            <Button
-               variant='default'
-               size='lg'
-               onClick={handleExploreClick}
-               className='font-semibold'
-            >
-               Explore {CONTENT_TYPE[contentType]}
-            </Button>
-         </div>
+         <Star color='#009ffd' className='w-16 h-16 mx-auto mb-4' />
+         <Heading>No Rated {CONTENT_TYPE[contentType]}</Heading>
+         <Paragraph>
+            You haven't rated any {CONTENT_TYPE[contentType]} yet. Start
+            watching and rating {CONTENT_TYPE[contentType]} to see them here!
+         </Paragraph>
+         <Button
+            variant='default'
+            size='lg'
+            onClick={handleExploreClick}
+            className='font-semibold'
+         >
+            Explore {CONTENT_TYPE[contentType]}
+         </Button>
       </div>
    );
 }
